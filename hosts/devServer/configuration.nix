@@ -40,7 +40,22 @@
     }
   ];
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [ "git" ];
+    };
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellInit = ''
+      # Disable zsh's newuser startup script that prompts you to create
+      # a ~/.z* file if missing
+      zsh-newuser-install() { :; }
+    '';
+  };
 
   services.openssh = {
     enable = true;
@@ -64,36 +79,10 @@
   };
 
   home-manager.users.addison = {
-    home = {
-      packages = with pkgs; [
-        htop
-        gh
-        zoxide
-      ];
-
-      stateVersion = "24.05";
-    };
-
-    programs.opencode = {
-      enable = true;
-    };
+    home.stateVersion = "24.05";
 
     programs.zsh = {
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-
-      oh-my-zsh = {
-        enable = true;
-        theme = "robbyrussell";
-        plugins = [ "git" ];
-      };
-
-      initExtra = ''
-        # Disable zsh's newuser startup script that prompts you to create
-        # a ~/.z* file if missing
-        zsh-newuser-install() { :; }
-      '';
-
+      enable = true;
       shellAliases = {
         u = "~/nix-config/hosts/devServer/update.sh";
         t = "echo Test!";
