@@ -79,10 +79,10 @@
     };
 
     programs.zsh = {
-      autosuggestions.enable = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      ohMyZsh = {
+      oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
         plugins = [ "git" ];
