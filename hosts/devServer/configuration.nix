@@ -80,6 +80,11 @@
 
   home-manager.users.addison = {
     home.stateVersion = "24.05";
+    programs.zsh = {
+      shellAliases = {
+        u = "~/nix-config/hosts/devServer/update.sh";
+      };
+    };
   };
 
   system.stateVersion = "24.05";
