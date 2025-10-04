@@ -24,6 +24,10 @@
     pkgs.helix
     pkgs.zellij
     pkgs.zoxide
+
+    # dev software
+    pkgs.go
+    pkgs.opencode
   ];
 
   environment.variables.EDITOR = "hx";
