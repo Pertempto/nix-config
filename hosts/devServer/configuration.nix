@@ -83,6 +83,7 @@
     programs.zsh = {
       shellAliases = {
         u = "~/nix-config/hosts/devServer/update.sh";
+        t = "echo Test!";
       };
     };
   };
