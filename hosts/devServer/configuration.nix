@@ -3,7 +3,7 @@
   lib,
   pkgs,
   ...
-} @ args:
+}@args:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -18,10 +18,13 @@
     efiInstallAsRemovable = true;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   networking.defaultGateway = "192.168.31.1";
-  networking.nameservers = ["192.168.31.2"];
+  networking.nameservers = [ "192.168.31.2" ];
   networking.interfaces.ens18.ipv4.addresses = [
     {
       address = "192.168.31.23";
@@ -45,13 +48,14 @@
     isNormalUser = true;
     home = "/home/addison";
     description = "Addison Emig";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSuWXV6LTpMKtNOpluR3umIJlh+94p0yJTXNNDqQeUV"
     ];
   };
-
-  
 
   system.stateVersion = "24.05";
 }
