@@ -16,6 +16,7 @@
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.openssh.enable = true;
 
   environment.systemPackages = map lib.lowPrio [
