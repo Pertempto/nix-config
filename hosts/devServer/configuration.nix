@@ -29,16 +29,16 @@
     }
   ];
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = false;
+    };
+  };
 
   environment.systemPackages = map lib.lowPrio [
     pkgs.curl
     pkgs.gitMinimal
-  ];
-
-  users.users.root.openssh.authorizedKeys.keys =
-  [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSuWXV6LTpMKtNOpluR3umIJlh+94p0yJTXNNDqQeUV"
   ];
 
   users.users.addison = {
