@@ -47,6 +47,14 @@
       theme = "robbyrussell";
       plugins = [ "git" ];
     };
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellInit = ''
+      # Disable zsh's newuser startup script that prompts you to create
+      # a ~/.z* file if missing
+      zsh-newuser-install() { :; }
+    '';
   };
 
   services.openssh = {
