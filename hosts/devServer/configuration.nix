@@ -79,12 +79,14 @@
   };
 
   home-manager.users.addison = {
-    home.stateVersion = "24.05";
-    programs.zsh = {
-      shellAliases = {
-        u = "~/nix-config/hosts/devServer/update.sh";
-        t = "echo Test!";
+    home = {
+      programs.zsh = {
+        shellAliases = {
+          u = "~/nix-config/hosts/devServer/update.sh";
+          t = "echo Test!";
+        };
       };
+      stateVersion = "24.05";
     };
   };
 
