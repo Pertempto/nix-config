@@ -5,3 +5,4 @@
 cd ~/nix-config
 git pull
 sudo nixos-rebuild switch --flake .#devServer
+cd -
