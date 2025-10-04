@@ -26,8 +26,8 @@
     pkgs.zoxide
 
     # dev software
+    pkgs.gh
     pkgs.go
-    pkgs.opencode
   ];
 
   environment.variables.EDITOR = "hx";
@@ -87,6 +87,10 @@
 
   home-manager.users.addison = {
     home.stateVersion = "24.05";
+
+    programs.opencode = {
+      enable = true;
+    };
 
     programs.zsh = {
       enable = true;
