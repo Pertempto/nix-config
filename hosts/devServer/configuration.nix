@@ -26,8 +26,10 @@
     pkgs.zoxide
 
     # dev software
+    pkgs.flutter
     pkgs.go
-    pkg.npm
+    pkgs.jq
+    pkgs.npm
   ];
 
   environment.variables.EDITOR = "hx";
