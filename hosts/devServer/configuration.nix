@@ -40,9 +40,14 @@
     }
   ];
 
-  programs.zsh.enable = true;
-  programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.plugins = [ "git" ];
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [ "git" ];
+    };
+  };
 
   services.openssh = {
     enable = true;
@@ -63,6 +68,10 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSuWXV6LTpMKtNOpluR3umIJlh+94p0yJTXNNDqQeUV"
     ];
+  };
+
+  home-manager.users.addison = {
+    home.stateVersion = "24.05";
   };
 
   system.stateVersion = "24.05";
