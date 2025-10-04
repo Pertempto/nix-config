@@ -29,7 +29,7 @@
     pkgs.flutter
     pkgs.go
     pkgs.jq
-    pkgs.npm
+    pkgs.nodejs-slim_24
   ];
 
   environment.variables.EDITOR = "hx";
