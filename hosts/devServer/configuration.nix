@@ -80,12 +80,16 @@
 
   home-manager.users.addison = {
     home = {
-      programs.zsh = {
-        shellAliases = {
-          u = "~/nix-config/hosts/devServer/update.sh";
-          t = "echo Test!";
-        };
+      shellAliases = {
+        u = "~/nix-config/hosts/devServer/update.sh";
+        t = "echo Test!";
       };
+      packages = with pkgs; [
+        htop
+        gh
+        zoxide
+        opencode
+      ];
       stateVersion = "24.05";
     };
   };
