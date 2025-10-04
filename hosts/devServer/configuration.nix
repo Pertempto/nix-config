@@ -18,6 +18,14 @@
     efiInstallAsRemovable = true;
   };
 
+  environment.systemPackages = map lib.lowPrio [
+    pkgs.curl
+    pkgs.gitMinimal
+    pkgs.helix
+  ];
+
+  environment.variables.EDITOR = "hx";
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -32,6 +40,10 @@
     }
   ];
 
+  programs.zsh.enable = true;
+  programs.zsh.ohMyZsh.enable = true;
+  programs.zsh.ohMyZsh.plugins = [ "git" ];
+
   services.openssh = {
     enable = true;
     settings = {
@@ -39,15 +51,11 @@
     };
   };
 
-  environment.systemPackages = map lib.lowPrio [
-    pkgs.curl
-    pkgs.gitMinimal
-  ];
-
   users.users.addison = {
     isNormalUser = true;
     home = "/home/addison";
     description = "Addison Emig";
+    shell = pkgs.zsh;
     extraGroups = [
       "wheel"
       "networkmanager"
