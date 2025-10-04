@@ -39,7 +39,17 @@
   users.users.root.openssh.authorizedKeys.keys =
   [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSuWXV6LTpMKtNOpluR3umIJlh+94p0yJTXNNDqQeUV"
-  ] ++ (args.extraPublicKeys or []); # this is used for unit-testing this module and can be removed if not needed
+  ];
+
+  users.users.addison = {
+    isNormalUser = true;
+    home = "/home/addison";
+    description = "Addison Emig";
+    extraGroups = [ "wheel" "networkmanager" ]
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSuWXV6LTpMKtNOpluR3umIJlh+94p0yJTXNNDqQeUV" ]
+  };
+
+  
 
   system.stateVersion = "24.05";
 }
