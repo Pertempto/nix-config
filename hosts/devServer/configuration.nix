@@ -88,7 +88,7 @@
         plugins = [ "git" ];
       };
 
-      shellInit = ''
+      initExtra = ''
         # Disable zsh's newuser startup script that prompts you to create
         # a ~/.z* file if missing
         zsh-newuser-install() { :; }
