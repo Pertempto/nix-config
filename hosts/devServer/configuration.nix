@@ -22,6 +22,8 @@
     pkgs.curl
     pkgs.gitMinimal
     pkgs.helix
+    pkgs.zellij
+    pkgs.zoxide
   ];
 
   environment.variables.EDITOR = "hx";
@@ -51,6 +53,7 @@
     syntaxHighlighting.enable = true;
 
     shellInit = ''
+      eval "$(zoxide init zsh)"
       # Disable zsh's newuser startup script that prompts you to create
       # a ~/.z* file if missing
       zsh-newuser-install() { :; }
