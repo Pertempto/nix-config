@@ -31,7 +31,7 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 1. Boot from the USB drive
 
 1. Install to hard drive
-   - TODO: add steps
+   - More info [here](./docs/install.md)
 
 1. Enable flakes in `/etc/nixos/configuration.nix`:
 
