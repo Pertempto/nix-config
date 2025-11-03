@@ -81,7 +81,7 @@
       shellAliases = {
         u = "~/nix-config/hosts/usbSandbox/update.sh";
         t = "echo Test!";
-        pastebin = "curl -s -F 'data=@-' https://justpaste.it/";
+        pastebin = "curl -s --data-binary @- 'https://paste.c-net.org/'";
       };
     };
   };
