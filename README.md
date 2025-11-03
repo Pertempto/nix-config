@@ -33,12 +33,6 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 1. Install to hard drive
    - More info [here](./docs/install.md)
 
-1. Enable flakes in `/etc/nixos/configuration.nix`:
-
-   ```nix
-   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-   ```
-
 1. Clone this repository:
 
    ```bash
