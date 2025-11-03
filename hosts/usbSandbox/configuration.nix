@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
   ];
 
+  networking.wireless.enable = true;
   # Load wifi credentials from a gitignored file `wifi-secrets.nix`.
   # The file should export an attrset: { networks = { "SSID" = { psk = "password"; }; }; }
   networking.wireless.networks = if builtins.pathExists ./wifi-secrets.nix then (import ./wifi-secrets.nix).networks else {};
