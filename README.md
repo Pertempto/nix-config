@@ -133,8 +133,17 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 ## Security & Secrets
 
 - **Do not commit secrets** (API keys, private keys, credentials) to this repo.
-- Use encrypted stores or separate private repo/branch for sensitive data.
-- Reference secrets via mounts, environment variables or encrypted files, not in plain config files.
+- Naming convention for secret files: use `<name>-secrets.nix` (for example `usbSandbox-secrets.nix` or `wifi-secrets.nix`).
+- Store secret files next to the host or module they belong to (e.g. `hosts/usbSandbox/usbSandbox-secrets.nix`).
+- Keep example/template files tracked by suffixing them with `.example` (for example `wifi-secrets.nix.example`).
+- The repo gitignore includes `**/*-secrets.nix` so secret files following the pattern are ignored.
+- Usage example: import secrets conditionally in a host config, for example:
+
+  ```nix
+  networking.wireless.networks = if builtins.pathExists ./usbSandbox-secrets.nix then (import ./usbSandbox-secrets.nix).networks else {};
+  ```
+
+- For additional protection consider encrypting secrets (age, GPG), using an external secret manager, or keeping them in a private repository or password manager.
 
 ---
 

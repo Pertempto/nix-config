@@ -9,6 +9,10 @@
     ./hardware-configuration.nix
   ];
 
+  # Load wifi credentials from a gitignored file `wifi-secrets.nix`.
+  # The file should export an attrset: { networks = { "SSID" = { psk = "password"; }; }; }
+  networking.wireless.networks = if builtins.pathExists ./wifi-secrets.nix then (import ./wifi-secrets.nix).networks else {};
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
