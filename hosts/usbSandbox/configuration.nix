@@ -20,6 +20,12 @@
   };
 
   time.timeZone = "America/New_York";
+
+  # Enable the COSMIC login manager
+  services.displayManager.cosmic-greeter.enable = true;
+
+  # Enable the COSMIC desktop environment
+  services.desktopManager.cosmic.enable = true;
   
   environment.systemPackages = map lib.lowPrio [
     # basic tools
@@ -62,6 +68,15 @@
       zsh-newuser-install() { :; }
     '';
   };
+
+  programs.git = {
+    enable = true;
+    userName = "Addison Emig";
+    userEmail = "addison.emig@mrs-electronics.com";
+    extraConfig = {
+      push = { autoSetupRemote = true; };
+    };
+  }
 
   users.users.addison = {
     isNormalUser = true;
