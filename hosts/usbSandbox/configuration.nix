@@ -9,7 +9,8 @@
     ./hardware-configuration.nix
   ];
 
-  services.networkmanager.enable = true;
+  # See https://wiki.nixos.org/wiki/NetworkManager
+  networking.networkmanager.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
