@@ -10,9 +10,9 @@
   ];
 
   networking.wireless.enable = true;
-  # Load wifi credentials from a gitignored file `wifi-secrets.nix`.
-  # The file should export an attrset: { networks = { "SSID" = { psk = "password"; }; }; }
-  networking.wireless.networks = if builtins.pathExists ./wifi-secrets.nix then (import ./wifi-secrets.nix).networks else {};
+  # Use an external wpa_supplicant-style secrets file if present.
+  # Create `wifi-secrets.conf` (gitignored) with your network secrets.
+  networking.wireless.secretsFile = if builtins.pathExists ./wifi-secrets.conf then ./wifi-secrets.conf else null;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

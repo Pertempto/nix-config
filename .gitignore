@@ -5,8 +5,6 @@ result-*
 # Ignore automatically generated direnv output
 .direnv
 
-# Secrets naming scheme: use `<name>-secrets.nix` for secret files
-# Examples: `wifi-secrets.nix`, `usbSandbox-secrets.nix`
-# Keep example/template files tracked with a `.example` suffix (e.g. `wifi-secrets.nix.example`).
-# Ignore all secret files matching the pattern anywhere in the repo:
+# Ignore secrets files
 **/*-secrets.nix
+**/*-secrets.conf
