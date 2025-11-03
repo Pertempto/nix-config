@@ -69,15 +69,6 @@
     '';
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Addison Emig";
-    userEmail = "addison.emig@mrs-electronics.com";
-    extraConfig = {
-      push = { autoSetupRemote = true; };
-    };
-  };
-
   users.users.addison = {
     isNormalUser = true;
     home = "/home/addison";
@@ -98,6 +89,15 @@
         u = "~/nix-config/hosts/usbSandbox/update.sh";
         t = "echo Test!";
         pastebin = "curl -s --data-binary @- 'https://paste.c-net.org/'";
+      };
+    };
+
+    programs.git = {
+      enable = true;
+      userName = "Addison Emig";
+      userEmail = "addison.emig@mrs-electronics.com";
+      extraConfig = {
+        push = { autoSetupRemote = true; };
       };
     };
   };
