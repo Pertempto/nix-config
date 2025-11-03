@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
   ];
 
-  networking.wireless.enable = true;
+  # networking.wireless.enable = true;
   # Use an external wpa_supplicant-style secrets file if present.
   # Create `wifi-secrets.conf` (gitignored) with your network secrets.
   # networking.wireless.secretsFile = if builtins.pathExists ./wifi-secrets.conf then ./wifi-secrets.conf else null;
