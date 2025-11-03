@@ -76,7 +76,7 @@
     extraConfig = {
       push = { autoSetupRemote = true; };
     };
-  }
+  };
 
   users.users.addison = {
     isNormalUser = true;
