@@ -22,6 +22,7 @@
   time.timeZone = "America/New_York";
   
   environment.systemPackages = map lib.lowPrio [
+    # basic tools
     pkgs.curl
     pkgs.gitMinimal
     pkgs.helix
@@ -29,6 +30,7 @@
     pkgs.zoxide
 
     # dev software
+    pkgs.gh
     pkgs.flutter
     pkgs.go
     pkgs.jq
