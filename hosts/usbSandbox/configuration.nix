@@ -94,9 +94,9 @@
 
     programs.git = {
       enable = true;
-      userName = "Addison Emig";
-      userEmail = "addison.emig@mrs-electronics.com";
-      extraConfig = {
+      settings = {
+        user.name = "Addison Emig";
+        user.email = "addison.emig@mrs-electronics.com";
         push = { autoSetupRemote = true; };
       };
     };
