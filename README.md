@@ -17,7 +17,7 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 - [Migration to Internal Install or Dual-Boot](#migration-to-internal-install-or-dual-boot)
 - [Maintenance & Upgrades](#maintenance-&-upgrades)
 - [Security & Secrets](#security-&-secrets)
-- [Checklist](#checklist)
+- [Roadmap](#roadmap)
 - [License](#license)
 
 ---
@@ -130,7 +130,7 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 ---
 
-## Checklist
+## Roadmap
 
 - [x] Create `flake.nix` with proper inputs and outputs.
 - [ ] Define `usbSandbox` profile
