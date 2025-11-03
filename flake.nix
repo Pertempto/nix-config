@@ -13,7 +13,7 @@
       ...
     }:
     {
-      nixosConfigurations.devServer= nixpkgs.lib.nixosSystem {
+      nixosConfigurations.devServer = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko
@@ -22,5 +22,6 @@
           # No hardware configuration because it is on a VM
         ];
       };
+      # TODO: add usbSandbox host profile
     };
 }
