@@ -47,6 +47,10 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
    sudo nixos-rebuild switch --flake .#usbSandbox
    ```
 
+> [!NOTE]
+> One you have installed the flake the first time, you should be able to use the
+> `u` alias in ZSH to trigger future updates.
+
 ---
 
 ## Using the Flake
@@ -137,7 +141,7 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 ## Roadmap
 
 - [x] Create `flake.nix` with proper inputs and outputs.
-- [ ] Define `usbSandbox` profile
+- [x] Define `usbSandbox` profile
 - [ ] Create Home-Manager config for user `addison`.
 - [ ] List current applications from Pop!\_OS and check availability.
 - [ ] Configure Wayland, terminal, keyboard-centric workflow.
