@@ -24,24 +24,32 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 ## Bootstrap / Initial Setup
 
-1. On your USB-drive test installation of NixOS, enable flakes in `/etc/nixos/configuration.nix`:
+1. Get "Minimal ISO image" from the [NixOS ISO Download Page](https://nixos.org/download/#nixos-iso)
 
-   ```nix
-   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-   ```
+1. Write it to a USB drive
 
-2. Clone this repository:
+1. Boot from the USB drive
+
+1. Install to hard drive
+   - More info [here](./docs/install.md)
+
+1. Clone this repository:
 
    ```bash
    git clone https://github.com/pertempto/nix-config.git ~/nix-config
    cd ~/nix-config
    ```
 
-3. Apply your host configuration:
+1. Apply your host configuration:
 
    ```bash
+   # This uses the usbSandbox host, but there are other options
    sudo nixos-rebuild switch --flake .#usbSandbox
    ```
+
+> [!NOTE]
+> One you have installed the flake the first time, you should be able to use the
+> `u` alias in ZSH to trigger future updates.
 
 ---
 
@@ -124,20 +132,21 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 ## Security & Secrets
 
-- **Do not commit secrets** (API keys, private keys, credentials) to this repo.
-- Use encrypted stores or separate private repo/branch for sensitive data.
-- Reference secrets via mounts, environment variables or encrypted files, not in plain config files.
+- Do not commit secrets (API keys, private keys, credentials).
+- Store secrets next to the host/module and name them like `<name>-secrets.nix` or `*-secrets.conf`; keep examples with a `.example` suffix.
+- `.gitignore` already ignores `**/*-secrets.nix` and `**/*-secrets.conf`; restrict permissions (e.g. `chmod 600`).
+- For stronger protection consider encryption (age/GPG) or a secret manager.
 
 ---
 
 ## Roadmap
 
 - [x] Create `flake.nix` with proper inputs and outputs.
-- [ ] Define `usbSandbox` profile
-- [ ] Create Home-Manager config for user `addison`.
+- [x] Define `usbSandbox` profile
+- [x] Install NixOS on USB drive (sandbox) and apply config.
+- [x] Create Home-Manager config for user `addison`.
 - [ ] List current applications from Pop!\_OS and check availability.
 - [ ] Configure Wayland, terminal, keyboard-centric workflow.
-- [ ] Install NixOS on USB drive (sandbox) and apply config.
 - [ ] Test hardware (WiFi, GPU, battery, power) on sandbox.
 - [ ] Iterate configuration until system and home workflows are stable.
 - [ ] Backup Pop!\_OS and data.

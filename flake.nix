@@ -19,9 +19,14 @@
           disko.nixosModules.disko
           ./hosts/devServer/configuration.nix
           home-manager.nixosModules.home-manager
-          # No hardware configuration because it is on a VM
         ];
       };
-      # TODO: add usbSandbox host profile
+      nixosConfigurations.usbSandbox = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/usbSandbox/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
     };
 }
