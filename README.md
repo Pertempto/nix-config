@@ -143,10 +143,10 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 - [x] Create `flake.nix` with proper inputs and outputs.
 - [x] Define `usbSandbox` profile
-- [ ] Create Home-Manager config for user `addison`.
+- [x] Install NixOS on USB drive (sandbox) and apply config.
+- [x] Create Home-Manager config for user `addison`.
 - [ ] List current applications from Pop!\_OS and check availability.
 - [ ] Configure Wayland, terminal, keyboard-centric workflow.
-- [ ] Install NixOS on USB drive (sandbox) and apply config.
 - [ ] Test hardware (WiFi, GPU, battery, power) on sandbox.
 - [ ] Iterate configuration until system and home workflows are stable.
 - [ ] Backup Pop!\_OS and data.
