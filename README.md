@@ -24,22 +24,32 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 ## Bootstrap / Initial Setup
 
-1. On your USB-drive test installation of NixOS, enable flakes in `/etc/nixos/configuration.nix`:
+1. Get "Minimal ISO image" from the [NixOS ISO Download Page](https://nixos.org/download/#nixos-iso)
+
+1. Write it to a USB drive
+
+1. Boot from the USB drive
+
+1. Install to hard drive
+   - TODO: add steps
+
+1. Enable flakes in `/etc/nixos/configuration.nix`:
 
    ```nix
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
    ```
 
-2. Clone this repository:
+1. Clone this repository:
 
    ```bash
    git clone https://github.com/pertempto/nix-config.git ~/nix-config
    cd ~/nix-config
    ```
 
-3. Apply your host configuration:
+1. Apply your host configuration:
 
    ```bash
+   # This uses the usbSandbox host, but there are other options
    sudo nixos-rebuild switch --flake .#usbSandbox
    ```
 
