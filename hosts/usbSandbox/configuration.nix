@@ -31,6 +31,7 @@
 
     # dev software
     pkgs.gh
+    pkgs.glab
     pkgs.flutter
     pkgs.go
     pkgs.jq
