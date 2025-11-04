@@ -87,17 +87,7 @@
     ];
   };
 
-  home-manager.users.addison = {
-    home.stateVersion = "24.05";
-
-    programs.zsh = {
-      enable = true;
-      shellAliases = {
-        u = "~/nix-config/hosts/devServer/update.sh";
-        t = "echo Test!";
-      };
-    };
-  };
+  home-manager.users.addison = import ../../home.nix;
 
   system.stateVersion = "24.05";
 }
