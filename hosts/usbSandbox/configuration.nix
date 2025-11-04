@@ -14,6 +14,11 @@
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager.enable = true;
 
+  networking.timeServers = [
+    "time.cloudflare.com"
+    "0.pool.ntp.org"
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
