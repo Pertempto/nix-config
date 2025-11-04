@@ -5,21 +5,24 @@
 }:
 {
   environment.systemPackages = map lib.lowPrio [
+    # core tools
     pkgs.curl
     pkgs.gitMinimal
     pkgs.helix
     pkgs.zellij
     pkgs.zoxide
-    pkgs.qemu
-    pkgs.gnome-boxes
+    pkgs.jq
     pkgs.btop
 
-    # dev software
+    # virtualization
+    pkgs.qemu
+    pkgs.gnome-boxes
+
+    # software development tools
     pkgs.gh
     pkgs.glab
     pkgs.flutter
     pkgs.go
-    pkgs.jq
     pkgs.nodejs_24
   ];
 
