@@ -71,5 +71,9 @@
     home = "/home/addison";
     description = "Addison Emig";
     shell = pkgs.zsh;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 }
