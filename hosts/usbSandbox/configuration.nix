@@ -28,6 +28,9 @@
 
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
+
+  # Enable timesyncd
+  services.timesyncd.enable = true;
   
   environment.systemPackages = map lib.lowPrio [
     # basic tools
