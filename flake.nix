@@ -18,6 +18,7 @@
         modules = [
           disko.nixosModules.disko
           ./hosts/devServer/configuration.nix
+          ./modules/shared.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.addison = import ./home.nix;
@@ -28,6 +29,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/usbSandbox/configuration.nix
+          ./modules/shared.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.addison = import ./home.nix;

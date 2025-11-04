@@ -29,49 +29,25 @@
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
   
-  environment.systemPackages = map lib.lowPrio [
-    # basic tools
-    pkgs.curl
-    pkgs.gitMinimal
-    pkgs.helix
-    pkgs.zellij
-    pkgs.zoxide
+  environment.systemPackages = with pkgs; [
+    # Additional desktop/virtualization packages beyond shared
     pkgs.vivaldi
     pkgs.qemu
     pkgs.gnome-boxes
     pkgs.btop
 
-    # dev software
+    # Additional dev software
     pkgs.gh
     pkgs.glab
-    pkgs.flutter
-    pkgs.go
-    pkgs.jq
-    pkgs.nodejs_24
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
 
-  environment.variables.EDITOR = "hx";
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
 
   programs.zsh = {
     enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [ "git" ];
-    };
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
     shellInit = ''
       eval "$(zoxide init zsh)"
       # Disable zsh's newuser startup script that prompts you to create
@@ -96,10 +72,6 @@
   };
 
   users.users.addison = {
-    isNormalUser = true;
-    home = "/home/addison";
-    description = "Addison Emig";
-    shell = pkgs.zsh;
     extraGroups = [
       "wheel"
       "networkmanager"
