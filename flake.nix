@@ -21,7 +21,7 @@
           ./modules/shared.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.users.addison = import ./home.nix;
+            home-manager.users.addison = import ./modules/home.nix;
           }
         ];
       };
@@ -32,7 +32,7 @@
           ./modules/shared.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.users.addison = import ./home.nix;
+            home-manager.users.addison = import ./modules/home.nix;
           }
         ];
       };
