@@ -65,4 +65,11 @@
       }
     '';
   };
+
+  users.users.addison = {
+    isNormalUser = true;
+    home = "/home/addison";
+    description = "Addison Emig";
+    shell = pkgs.zsh;
+  };
 }
