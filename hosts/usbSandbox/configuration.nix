@@ -39,6 +39,7 @@
     pkgs.vivaldi
     pkgs.qemu
     pkgs.gnome-boxes
+    pkgs.btop
 
     # dev software
     pkgs.gh
