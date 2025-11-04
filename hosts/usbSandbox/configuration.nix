@@ -111,7 +111,7 @@
   home-manager.users.addison = {
     home.stateVersion = "25.05";
 
-      programs.zsh = {
+    programs.zsh = {
       enable = true;
       shellAliases = {
         u = "~/nix-config/hosts/usbSandbox/update.sh";
