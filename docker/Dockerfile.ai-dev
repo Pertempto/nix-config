@@ -20,7 +20,7 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
     && rm -rf /var/lib/apt/lists/*
 
 # Install OpenCode
-RUN curl -fsSL https://raw.githubusercontent.com/opencode-ai/opencode/refs/heads/main/install | bash
+RUN curl -fsSL https://opencode.ai/install | bash
 
 # Set entrypoint or default command if you like
 ENTRYPOINT ["opencode"]
