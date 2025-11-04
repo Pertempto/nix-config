@@ -37,6 +37,7 @@
     pkgs.zellij
     pkgs.zoxide
     pkgs.vivaldi
+    pkgs.gnome-boxes
 
     # dev software
     pkgs.gh
