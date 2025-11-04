@@ -2,6 +2,12 @@
 {
   home.stateVersion = "25.05";
 
+  # Add dot-files to config directory
+  home.file."${config.xdg.configHome}" = {
+    source = ../dot-files;
+    recursive = true;
+  };
+
   programs.zsh = {
     enable = true;
     shellAliases = {
