@@ -14,11 +14,6 @@
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager.enable = true;
 
-  networking.timeServers = [
-    "time.cloudflare.com"
-    "0.pool.ntp.org"
-  ];
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
@@ -34,8 +29,11 @@
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
 
-  # Enable timesyncd
-  services.timesyncd.enable = true;
+  services.chrony = {
+    enable = true;
+    servers = [ "time.cloudflare.com" "time.google.com" ];
+  };
+  services.timesyncd.enable = false;
   
   environment.systemPackages = map lib.lowPrio [
     # basic tools
