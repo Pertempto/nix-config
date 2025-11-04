@@ -9,8 +9,6 @@
     ./hardware-configuration.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager.enable = true;
 
@@ -21,8 +19,6 @@
     efiSupport = true;
   };
 
-  time.timeZone = "America/New_York";
-
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
 
@@ -30,66 +26,12 @@
   services.desktopManager.cosmic.enable = true;
   
   environment.systemPackages = with pkgs; [
-    # Additional desktop/virtualization packages beyond shared
     pkgs.vivaldi
-    pkgs.qemu
-    pkgs.gnome-boxes
-    pkgs.btop
-
-    # Additional dev software
-    pkgs.gh
-    pkgs.glab
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
-
-
-  programs.zsh = {
-    enable = true;
-    shellInit = ''
-      eval "$(zoxide init zsh)"
-      # Disable zsh's newuser startup script that prompts you to create
-      # a ~/.z* file if missing
-      zsh-newuser-install() { :; }
-
-      # aiDev: build local image if missing and run with CWD mounted
-      aiDev() {
-        local image="ai-dev:latest"
-        if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
-          buildAiDevImage
-        fi
-        docker run --rm -it -v "$PWD":/work -v "$HOME/.config/opencode:/root/.config/opencode" -w /work "$image" "$@"
-      }
-
-      # buildAiDevImage: force rebuild of the local ai-dev image
-      buildAiDevImage() {
-        local image="ai-dev:latest"
-        docker build --no-cache -t "$image" -f ~/nix-config/docker/Dockerfile.ai-dev ~/nix-config
-      }
-    '';
-  };
-
-  users.users.addison = {
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "libvirtd"
-      "podman"
-    ];
-  };
-
-  virtualisation = {
-    libvirtd.enable = true;
-    containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true; 
-    };
-  };
   
   system.stateVersion = "25.05";
 }
