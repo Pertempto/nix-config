@@ -28,12 +28,6 @@
 
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
-
-  services.chrony = {
-    enable = true;
-    servers = [ "time.cloudflare.com" "time.google.com" ];
-  };
-  services.timesyncd.enable = false;
   
   environment.systemPackages = map lib.lowPrio [
     # basic tools
