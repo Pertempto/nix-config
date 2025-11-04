@@ -85,6 +85,7 @@
       "wheel"
       "networkmanager"
       "libvirtd"
+      "podman"
     ];
   };
 
@@ -110,7 +111,16 @@
     };
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true; 
+    };
+  };
   
   system.stateVersion = "25.05";
 }
