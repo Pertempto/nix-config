@@ -87,7 +87,5 @@
     ];
   };
 
-  home-manager.users.addison = import ../../home.nix;
-
   system.stateVersion = "24.05";
 }

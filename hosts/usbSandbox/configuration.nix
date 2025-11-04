@@ -108,8 +108,6 @@
     ];
   };
 
-  home-manager.users.addison = import ../../home.nix;
-
   virtualisation = {
     libvirtd.enable = true;
     containers.enable = true;

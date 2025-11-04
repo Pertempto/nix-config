@@ -19,6 +19,9 @@
           disko.nixosModules.disko
           ./hosts/devServer/configuration.nix
           home-manager.nixosModules.home-manager
+          {
+            home-manager.users.addison = import ./home.nix;
+          }
         ];
       };
       nixosConfigurations.usbSandbox = nixpkgs.lib.nixosSystem {
@@ -26,6 +29,9 @@
         modules = [
           ./hosts/usbSandbox/configuration.nix
           home-manager.nixosModules.home-manager
+          {
+            home-manager.users.addison = import ./home.nix;
+          }
         ];
       };
     };
