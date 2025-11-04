@@ -73,6 +73,15 @@
       # Disable zsh's newuser startup script that prompts you to create
       # a ~/.z* file if missing
       zsh-newuser-install() { :; }
+
+      # opencode: build local image if missing and run with CWD mounted
+      opencode() {
+        local image="ai-dev:latest"
+        if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
+          docker build -t "$image" -f ~/nix-config/docker/Dockerfile.ai-dev ~/nix-config
+        fi
+        docker run --rm -it -v "$PWD":/work -w /work "$image" "$@"
+      }
     '';
   };
 
@@ -92,7 +101,7 @@
   home-manager.users.addison = {
     home.stateVersion = "25.05";
 
-    programs.zsh = {
+      programs.zsh = {
       enable = true;
       shellAliases = {
         u = "~/nix-config/hosts/usbSandbox/update.sh";
