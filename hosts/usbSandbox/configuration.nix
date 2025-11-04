@@ -50,6 +50,10 @@
     pkgs.nodejs_24
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
+
   environment.variables.EDITOR = "hx";
 
   nix.settings.experimental-features = [
