@@ -9,6 +9,8 @@
     ./hardware-configuration.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager.enable = true;
 
@@ -34,6 +36,7 @@
     pkgs.helix
     pkgs.zellij
     pkgs.zoxide
+    pkgs.vivaldi
 
     # dev software
     pkgs.gh
@@ -50,6 +53,7 @@
     "nix-command"
     "flakes"
   ];
+
 
   programs.zsh = {
     enable = true;
