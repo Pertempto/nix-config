@@ -14,10 +14,6 @@
     pkgs.jq
     pkgs.btop
 
-    # virtualization
-    pkgs.qemu
-    pkgs.gnome-boxes
-
     # software development tools
     pkgs.gh
     pkgs.glab
@@ -68,29 +64,5 @@
         docker build --no-cache -t "$image" -f ~/nix-config/docker/Dockerfile.ai-dev ~/nix-config
       }
     '';
-  };
-
-  users.users.addison = {
-    isNormalUser = true;
-    home = "/home/addison";
-    description = "Addison Emig";
-    shell = pkgs.zsh;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "libvirtd"
-      "podman"
-    ];
-  };
-
-  virtualisation = {
-    libvirtd.enable = true;
-    containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true; 
-    };
   };
 }

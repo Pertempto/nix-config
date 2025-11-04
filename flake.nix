@@ -19,6 +19,7 @@
           disko.nixosModules.disko
           ./hosts/devServer/configuration.nix
           ./modules/shared.nix
+          ./modules/virtualization.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.addison = import ./modules/home.nix;
@@ -30,6 +31,7 @@
         modules = [
           ./hosts/usbSandbox/configuration.nix
           ./modules/shared.nix
+          ./modules/virtualization.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.addison = import ./modules/home.nix;
