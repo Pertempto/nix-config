@@ -1,0 +1,32 @@
+theme = "base16_transparent"
+
+[editor]
+line-number = "relative"
+mouse = false
+rulers = [80, 120]
+true-color = true
+bufferline = "multiple"
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "error" # Show inline diagnostics when the cursor is on the line
+other-lines = "disable" # Don't expand diagnostics unless the cursor is on the line
+
+[editor.file-picker]
+hidden = false
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+center = ["version-control"]
+
+[editor.lsp]
+# display-inlay-hints = true
+display-messages = true
+
+[keys.normal]
+C-y = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
+
+[keys.normal.ret]
+t = [":write-all", ":insert-output serpl >/dev/tty", ":redraw", ":reload-all"]

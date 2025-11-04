@@ -1,0 +1,77 @@
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "ltex-ls" ]
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
+
+
+[language-server.angular-ls]
+command = "ngserver"
+
+# Be sure to add
+# export NODE_MODULES_GLOBAL="$(npm root -g)"
+# to ~/.zshrc to make this work
+args = [
+  "--ngProbeLocations",
+  "${$NODE_MODULES_GLOBAL}",
+  "--tsProbeLocations",
+  "${$NODE_MODULES_GLOBAL}",
+  "--stdio",
+  # If this for some reason doesn't work, try replacing ${NODE_MODULES_GLOBAL} with the absolute paths, e.g. output of `npm root -g`
+]
+
+file-types = ["ts", "typescript", "html"]
+
+[[language]]
+name = "html"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "html"] }
+language-servers = ["angular-ls", "vscode-html-language-server"]
+
+[[language]]
+name = "html"
+file-types = [{ glob = "*.component.html" }]
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "angular"] }
+
+[[language]]
+name = "json"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "javascript"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "typescript"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["angular-ls", "typescript-language-server"]
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+
+[language-server.mdx-ls]
+command="mdx-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "dart"
+formatter = { command = "dart", args = ["format"] }
+
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py","pyi","py3","pyw"]
+roots = [".", "pyproject.toml"]
+comment-token = "#"
+language-servers = ["pylsp"]
+indent = { tab-width = 4, unit = " " }
+auto-format = true
+
+[language.formatter]
+command = "black"
+args = [
+  "-",
+  "--quiet",
+  "--line-length=80"
+]
