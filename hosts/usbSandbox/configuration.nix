@@ -74,13 +74,19 @@
       # a ~/.z* file if missing
       zsh-newuser-install() { :; }
 
-      # opencode: build local image if missing and run with CWD mounted
-      opencode() {
+      # aiDev: build local image if missing and run with CWD mounted
+      aiDev() {
         local image="ai-dev:latest"
         if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
-          docker build -t "$image" -f ~/nix-config/docker/Dockerfile.ai-dev ~/nix-config
+          buildAiDevImage
         fi
         docker run --rm -it -v "$PWD":/work -w /work "$image" "$@"
+      }
+
+      # buildAiDevImage: force rebuild of the local ai-dev image
+      buildAiDevImage() {
+        local image="ai-dev:latest"
+        docker build --no-cache -t "$image" -f ~/nix-config/docker/Dockerfile.ai-dev ~/nix-config
       }
     '';
   };
