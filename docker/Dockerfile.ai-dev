@@ -22,5 +22,9 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
 # Install OpenCode
 RUN curl -fsSL https://opencode.ai/install | bash
 
+# Configure git user
+RUN git config --global user.name "OpenCode" && \
+    git config --global user.email "opencode@opencode.ai"
+
 CMD ["/root/.opencode/bin/opencode"]
 
