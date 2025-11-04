@@ -37,6 +37,7 @@
     pkgs.zellij
     pkgs.zoxide
     pkgs.vivaldi
+    pkgs.qemu
     pkgs.gnome-boxes
 
     # dev software
@@ -82,6 +83,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "libvirtd"
     ];
   };
 
@@ -107,5 +109,7 @@
     };
   };
 
+  virtualisation.libvirtd.enable = true;
+  
   system.stateVersion = "25.05";
 }
