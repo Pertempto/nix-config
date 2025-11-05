@@ -28,6 +28,9 @@
             home-manager.users.addison = import ./modules/home.nix;
           }
         ];
+        specialArgs = {
+          inherit time-tracker;
+        };
       };
       nixosConfigurations.usbSandbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -40,6 +43,9 @@
             home-manager.users.addison = import ./modules/home.nix;
           }
         ];
+        specialArgs = {
+          inherit time-tracker;
+        };
       };
     };
 }
