@@ -58,8 +58,9 @@
         if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
           buildAiDevImage
         fi
+        mkdir -p "$HOME/.opencode/config"
         # Run container with: current dir mounted at /work, OpenCode config persisted, interactive terminal
-        docker run --rm -it -v "$PWD":/work -v "$HOME/.opencode:/root/.opencode" -w /work "$image" "$@"
+        docker run --rm -it -v "$PWD":/work -v "$HOME/.opencode/config:/root/.opencode/config" -w /work "$image" "$@"
       }
 
       # buildAiDevImage: force rebuild of the local ai-dev image
