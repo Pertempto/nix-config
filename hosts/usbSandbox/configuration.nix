@@ -26,6 +26,7 @@
   services.desktopManager.cosmic.enable = true;
   
   environment.systemPackages = with pkgs; [
+    pkgs.wl-clipboard
     pkgs.vivaldi
     pkgs.slack
     pkgs.teams-for-linux
