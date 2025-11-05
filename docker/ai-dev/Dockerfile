@@ -27,6 +27,7 @@ RUN git config --global user.name "OpenCode" && \
     git config --global user.email "opencode@opencode.ai"
 
 # This is where the code will be mounted
+RUN mkdir /work
 WORKDIR /work
 
 CMD ["/root/.opencode/bin/opencode"]

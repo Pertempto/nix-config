@@ -59,12 +59,6 @@
           docker compose -f "$AI_DEV_COMPOSE_FILE" build --no-cache ai-dev
         }
 
-        # setupAiDev: run ai-dev image with bash shell
-        setupAiDev() {
-          mkdir -p "$HOME/.local/share/opencode" "$HOME/.local/state/opencode"
-          docker compose -f "$AI_DEV_COMPOSE_FILE" run --rm --build ai-dev bash
-        }
-
         # aiDev: build local image if missing and run with CWD mounted
         aiDev() {
           mkdir -p "$HOME/.local/share/opencode" "$HOME/.local/state/opencode"
