@@ -46,42 +46,31 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellInit = ''
-      eval "$(zoxide init zsh)"
-      # Disable zsh's newuser startup script that prompts you to create
-      # a ~/.z* file if missing
-      zsh-newuser-install() { :; }
+      shellInit = ''
+        eval "$(zoxide init zsh)"
+        # Disable zsh's newuser startup script that prompts you to create
+        # a ~/.z* file if missing
+        zsh-newuser-install() { :; }
 
-      # buildAiDevImage: force rebuild of the local ai-dev image
-      buildAiDevImage() {
-        local image="ai-dev:latest"
-        docker build --no-cache -t "$image" -f ~/nix-config/docker/Dockerfile.ai-dev ~/nix-config
-      }
+        AI_DEV_COMPOSE_FILE=~/nix-config/docker/ai-dev/docker-compose.yml
 
-      # setupAiDev: run ai-dev image with bash shell
-      setupAiDev() {
-        local image="ai-dev:latest"
-        if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
-          buildAiDevImage
-        fi
-        mkdir -p "$HOME/.local/share/opencode"
-        mkdir -p "$HOME/.local/state/opencode"
-        # Run container with: OpenCode config persisted, bash terminal
-        docker run --rm -it -v "$HOME/.local/share/opencode:/root/.local/share/opencode" -v "$HOME/.local/state/opencode:/root/.local/state/opencode" "$image" bash
-      }
+        # buildAiDevImage: force rebuild of the local ai-dev image
+        buildAiDevImage() {
+          docker compose -f "$AI_DEV_COMPOSE_FILE" build --no-cache ai-dev
+        }
 
-      # aiDev: build local image if missing and run with CWD mounted
-      aiDev() {
-        local image="ai-dev:latest"
-        if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
-          buildAiDevImage
-        fi
-        mkdir -p "$HOME/.local/share/opencode"
-        mkdir -p "$HOME/.local/state/opencode"
-        # Run container with: current dir mounted at /work, OpenCode config persisted, OpenCode running
-        docker run --rm -it -v "$PWD":/work -v "$HOME/.local/share/opencode:/root/.local/share/opencode" -v "$HOME/.local/state/opencode:/root/.local/state/opencode" "$image" "$@"
-      }
-    '';
+        # setupAiDev: run ai-dev image with bash shell
+        setupAiDev() {
+          mkdir -p "$HOME/.local/share/opencode" "$HOME/.local/state/opencode"
+          docker compose -f "$AI_DEV_COMPOSE_FILE" run --rm --build ai-dev bash
+        }
+
+        # aiDev: build local image if missing and run with CWD mounted
+        aiDev() {
+          mkdir -p "$HOME/.local/share/opencode" "$HOME/.local/state/opencode"
+          docker compose -f "$AI_DEV_COMPOSE_FILE" run --rm --build -v "$PWD":/work ai-dev "$@"
+        }
+      '';
   };
 
   users.users.addison = {

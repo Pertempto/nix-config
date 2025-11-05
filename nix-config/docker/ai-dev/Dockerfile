@@ -30,4 +30,3 @@ RUN git config --global user.name "OpenCode" && \
 WORKDIR /work
 
 CMD ["/root/.opencode/bin/opencode"]
-
