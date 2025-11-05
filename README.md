@@ -61,12 +61,6 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
   sudo nixos-rebuild switch --flake .#<host-name>
   ```
 
-- Rebuild or switch Home-Manager configuration:
-
-  ```bash
-  home-manager switch --flake .#<user>@<host-name>
-  ```
-
 - Update inputs and lock file:
 
   ```bash
@@ -86,38 +80,12 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 ---
 
-## Applications & Workflow
+## Manual Steps
 
-- List all your current Pop!\_OS applications.
-- In your `home/users/pertempto.nix` or modules, declare packages via `environment.systemPackages` (system) or `home.packages` (user).
-- Mark each application as:
-  - ✅ works out of the box (nixpkgs)
-  - ⚠️ requires overlay or custom packaging
-- Use overlays for custom or missing packages.
-- Configure Wayland, preferred terminal (kitty/alacritty), keyboard-centred hotkeys via Home-Manager or system modules.
-
----
-
-## USB Sandbox Strategy
-
-- Use the external drive as a “safe sandbox” to:
-  - Test hardware compatibility without modifying your main OS.
-  - Build and refine your flake config until workflows and hardware are reliable.
-  - Validate your dev environment (Node 20, editor, terminal, etc).
-
-- Note: USB-drive performance may be slower (especially builds) — acceptable for sandbox use.
-
----
-
-## Migration to Internal Install or Dual-Boot
-
-- Backup all important data from your current OS.
-- Decide strategy:
-  - **Replace Pop!\_OS**: Install NixOS on internal drive with your tested flake.
-  - **Dual-boot**: Install alongside Pop!\_OS and use it as fallback.
-- On internal install: clone this repo, apply `thinkpad` host profile.
-- Update bootloader/EFI settings if dual-booting.
-- After stability, optionally retire Pop!\_OS or repurpose its space.
+The following will need copied across manually and should be kept private and secure:
+- VPN connection configuration
+  - OpenVPN3 for work
+- SSH keys
 
 ---
 
@@ -145,13 +113,12 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 - [x] Define `usbSandbox` profile
 - [x] Install NixOS on USB drive (sandbox) and apply config.
 - [x] Create Home-Manager config for user `addison`.
+- [x] Test hardware (WiFi, GPU, battery, power) on sandbox.
 - [ ] List current applications from Pop!\_OS and check availability.
-- [ ] Configure Wayland, terminal, keyboard-centric workflow.
-- [ ] Test hardware (WiFi, GPU, battery, power) on sandbox.
 - [ ] Iterate configuration until system and home workflows are stable.
-- [ ] Backup Pop!\_OS and data.
+- [ ] Backup Pop!\_OS data.
 - [ ] Define `thinkpad` profile
-- [ ] Install NixOS on internal drive (or dual-boot) using this repo.
+- [ ] Install NixOS on internal drive.
 - [ ] Clone repo on internal install and apply `thinkpad` profile.
 - [ ] Verify everything works; optionally retire Pop!\_OS.
 - [ ] Set up periodic maintenance/upgrades (flake update, version control).

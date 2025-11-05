@@ -9,8 +9,6 @@
     ./hardware-configuration.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager.enable = true;
 
@@ -21,106 +19,30 @@
     efiSupport = true;
   };
 
-  time.timeZone = "America/New_York";
-
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
 
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
   
-  environment.systemPackages = map lib.lowPrio [
-    # basic tools
-    pkgs.curl
-    pkgs.gitMinimal
-    pkgs.helix
-    pkgs.zellij
-    pkgs.zoxide
+  environment.systemPackages = with pkgs; [
+    pkgs.wl-clipboard
     pkgs.vivaldi
-    pkgs.qemu
-    pkgs.gnome-boxes
-    pkgs.btop
-
-    # dev software
-    pkgs.gh
-    pkgs.glab
-    pkgs.flutter
-    pkgs.go
-    pkgs.jq
-    pkgs.nodejs_24
+    pkgs.slack
+    pkgs.teams-for-linux
+    pkgs.keepassxc
+    pkgs.pika-backup
+    pkgs.beekeeper-studio
   ];
 
-  environment.variables.EDITOR = "hx";
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
+  nixpkgs.config.permittedInsecurePackages = [
+    # It is marked insecure because it uses Electron v31, but it should be ok
+    "beekeeper-studio-5.3.4"
   ];
 
-
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [ "git" ];
-    };
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellInit = ''
-      eval "$(zoxide init zsh)"
-      # Disable zsh's newuser startup script that prompts you to create
-      # a ~/.z* file if missing
-      zsh-newuser-install() { :; }
-    '';
-  };
-
-  users.users.addison = {
-    isNormalUser = true;
-    home = "/home/addison";
-    description = "Addison Emig";
-    shell = pkgs.zsh;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "libvirtd"
-      "podman"
-    ];
-  };
-
-  home-manager.users.addison = {
-    home.stateVersion = "25.05";
-
-    programs.zsh = {
-      enable = true;
-      shellAliases = {
-        u = "~/nix-config/hosts/usbSandbox/update.sh";
-        t = "echo Test!";
-        pastebin = "curl -s --data-binary @- 'https://paste.c-net.org/'";
-      };
-    };
-
-    programs.git = {
-      enable = true;
-      settings = {
-        user.name = "Addison Emig";
-        user.email = "addison.emig@mrs-electronics.com";
-        push = { autoSetupRemote = true; };
-      };
-    };
-  };
-
-  virtualisation = {
-    libvirtd.enable = true;
-    containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true; 
-    };
-  };
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
   
   system.stateVersion = "25.05";
 }

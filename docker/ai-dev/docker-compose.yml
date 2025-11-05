@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  ai-dev:
+    image: ai-dev:latest
+    build: .
+    volumes:
+      - ${HOME}/.local/share/opencode:/root/.local/share/opencode
+      - ${HOME}/.local/state/opencode:/root/.local/state/opencode
+    working_dir: /work
+    tty: true
+    stdin_open: true

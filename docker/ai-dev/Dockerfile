@@ -1,0 +1,33 @@
+FROM ubuntu:25.10
+
+# install dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg \
+    ca-certificates \
+    git \
+    unzip \
+    # add any others you need
+    && rm -rf /var/lib/apt/lists/*
+
+# Install GitHub CLI
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+    | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+      | tee /etc/apt/sources.list.d/github-cli.list \
+    && apt-get update \
+    && apt-get install -y gh \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install OpenCode
+RUN curl -fsSL https://opencode.ai/install | bash
+
+# Configure git user
+RUN git config --global user.name "OpenCode" && \
+    git config --global user.email "opencode@opencode.ai"
+
+# This is where the code will be mounted
+RUN mkdir /work
+WORKDIR /work
+
+CMD ["/root/.opencode/bin/opencode"]
