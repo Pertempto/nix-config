@@ -26,7 +26,7 @@ RUN curl -fsSL https://opencode.ai/install | bash
 RUN git config --global user.name "OpenCode" && \
     git config --global user.email "opencode@opencode.ai"
 
-# This is where could will be mounted
+# This is where the code will be mounted
 WORKDIR /work
 
 CMD ["/root/.opencode/bin/opencode"]
