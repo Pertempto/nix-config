@@ -55,7 +55,7 @@
         if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
           buildAiDevImage
         fi
-        docker run --rm -it -v "$PWD":/work -v "$(readlink -f $HOME/.config/opencode/opencode.json):/root/.config/opencode/opencode.json" -w /work "$image" "$@"
+        docker run --rm -it -v "$PWD":/work -w /work "$image" "$@"
       }
 
       # buildAiDevImage: force rebuild of the local ai-dev image

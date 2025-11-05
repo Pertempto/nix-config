@@ -26,8 +26,5 @@ RUN curl -fsSL https://opencode.ai/install | bash
 RUN git config --global user.name "OpenCode" && \
     git config --global user.email "opencode@opencode.ai"
 
-# Configure configuration path
-ENV OPENCODE_config=/root/.config/opencode/opencode.json
-
 CMD ["/root/.opencode/bin/opencode"]
 
