@@ -20,13 +20,14 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 # Read the config file; skip blank lines and lines starting with #
-while IFS=$'\t' read -r url target || [ -n "$url" ]; do
+while read -r url target || [ -n "$url" ]; do
   # skip comments / empty lines
   [[ -z "${url// }" ]] && continue
   [[ "$url" =~ ^# ]] && continue
 
-  # expand ~ and environment variables in target
-  eval target_path="$target"
+  # expand ~ and env vars, then convert to absolute path
+  eval expanded_target="$target"
+  target_path="$(realpath -m "$expanded_target" 2>/dev/null || echo "$expanded_target")"
 
   if [ -d "$target_path" ]; then
     printf 'SKIP: %s already exists at %s\n' "$url" "$target_path"
