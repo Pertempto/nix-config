@@ -34,6 +34,11 @@
     pkgs.beekeeper-studio
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    # It is marked insecure because it uses Electron v31, but it should be ok
+    "beekeeper-studio-5.3.4"
+  ];
+
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
