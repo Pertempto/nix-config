@@ -27,4 +27,6 @@
       defaultNetwork.settings.dns_enabled = true; 
     };
   };
+
+  networking.firewall.interfaces.podman0.allowedUDPPorts = [ 53 ];
 }
