@@ -4,12 +4,15 @@
   inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
   inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.time-tracker.url = "github:mrs-electronics-inc/time-tracker";
+  inputs.time-tracker.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs =
     {
       nixpkgs,
       disko,
       home-manager,
+      time-tracker,
       ...
     }:
     {

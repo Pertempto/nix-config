@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  time-tracker,
   ...
 }:
 {
@@ -20,6 +21,8 @@
     pkgs.flutter
     pkgs.go
     pkgs.nodejs_24
+
+    time-tracker.packages.${pkgs.system}.default
   ];
 
   environment.variables.EDITOR = "hx";
