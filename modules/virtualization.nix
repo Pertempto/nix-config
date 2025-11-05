@@ -7,8 +7,7 @@
   environment.systemPackages = map lib.lowPrio [
     pkgs.qemu
     pkgs.gnome-boxes
-    pkgs.netavark
-    pkgs.aardvark-dns
+    pkgs.slirp4netns
   ];
 
   users.users.addison.extraGroups = [
@@ -27,6 +26,4 @@
       defaultNetwork.settings.dns_enabled = true; 
     };
   };
-
-  networking.firewall.interfaces.podman0.allowedUDPPorts = [ 53 ];
 }
