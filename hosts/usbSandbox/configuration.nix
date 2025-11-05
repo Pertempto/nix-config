@@ -27,6 +27,11 @@
   
   environment.systemPackages = with pkgs; [
     pkgs.vivaldi
+    pkgs.slack
+    pkgs.teams-for-linux
+    pkgs.keepassxc
+    pkgs.pika-backup
+    pkgs.beekeeper-studio
   ];
 
   fonts.packages = with pkgs; [
