@@ -64,9 +64,9 @@
         if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
           buildAiDevImage
         fi
-        mkdir -p "$HOME/.opencode/config"
-        # Run container with bash shell and config
-        docker run --rm -it -v "$HOME/.opencode/config:/root/.opencode/config" "$image" bash
+        mkdir -p "$HOME/.local/share/opencode"
+        # Run container with: OpenCode config persisted, bash terminal
+        docker run --rm -it -v "$HOME/.local/share/opencode:/root/.local/share/opencode" "$image" bash
       }
 
       # aiDev: build local image if missing and run with CWD mounted
@@ -75,9 +75,9 @@
         if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
           buildAiDevImage
         fi
-        mkdir -p "$HOME/.opencode/config"
-        # Run container with: current dir mounted at /work, OpenCode config persisted, interactive terminal
-        docker run --rm -it -v "$PWD":/work -v "$HOME/.opencode/config:/root/.opencode/config" "$image" "$@"
+        mkdir -p "$HOME/.local/share/opencode"
+        # Run container with: current dir mounted at /work, OpenCode config persisted, OpenCode running
+        docker run --rm -it -v "$PWD":/work -v "$HOME/.local/share/opencode:/root/.local/share/opencode" "$image" "$@"
       }
     '';
   };
