@@ -12,7 +12,7 @@
     enable = true;
     shellAliases = {
       u = "~/nix-config/hosts/usbSandbox/update.sh";
-      tb = "cd $HOME/.config/time-tracker && ./backup.sh && cd -"
+      tb = "cd $HOME/.config/time-tracker && ./backup.sh && cd -";
       pastebin = "curl -s --data-binary @- 'https://paste.c-net.org/'";
     };
   };
