@@ -11,10 +11,11 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      u = "~/nix-config/hosts/usbSandbox/update.sh";
+      pastebin = "curl -s --data-binary @- 'https://paste.c-net.org/'";
       t = "time-tracker";
       tb = "cd $HOME/.config/time-tracker && ./backup.sh && cd -";
-      pastebin = "curl -s --data-binary @- 'https://paste.c-net.org/'";
+      u = "~/nix-config/hosts/usbSandbox/update.sh";
+      vpn = "openvpn3 session-start --config \"$HOME/Documents/sslvpn-addison.emig@mrs-electronics.com-client-config.ovpn\"";
     };
   };
 

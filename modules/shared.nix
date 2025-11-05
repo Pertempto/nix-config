@@ -14,6 +14,7 @@
     pkgs.zoxide
     pkgs.jq
     pkgs.btop
+    pkgs.openvpn3
 
     # software development tools
     pkgs.gh
