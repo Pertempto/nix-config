@@ -52,6 +52,23 @@
       # a ~/.z* file if missing
       zsh-newuser-install() { :; }
 
+      # buildAiDevImage: force rebuild of the local ai-dev image
+      buildAiDevImage() {
+        local image="ai-dev:latest"
+        docker build --no-cache -t "$image" -f ~/nix-config/docker/Dockerfile.ai-dev ~/nix-config
+      }
+
+      # setupAiDev: run ai-dev image with bash shell
+      setupAiDev() {
+        local image="ai-dev:latest"
+        if [ -z "$(docker images -q "$image" 2>/dev/null)" ]; then
+          buildAiDevImage
+        fi
+        mkdir -p "$HOME/.opencode/config"
+        # Run container with bash shell and config
+        docker run --rm -it -v "$HOME/.opencode/config:/root/.opencode/config" "$image" bash
+      }
+
       # aiDev: build local image if missing and run with CWD mounted
       aiDev() {
         local image="ai-dev:latest"
@@ -60,13 +77,7 @@
         fi
         mkdir -p "$HOME/.opencode/config"
         # Run container with: current dir mounted at /work, OpenCode config persisted, interactive terminal
-        docker run --rm -it -v "$PWD":/work -v "$HOME/.opencode/config:/root/.opencode/config" -w /work "$image" "$@"
-      }
-
-      # buildAiDevImage: force rebuild of the local ai-dev image
-      buildAiDevImage() {
-        local image="ai-dev:latest"
-        docker build --no-cache -t "$image" -f ~/nix-config/docker/Dockerfile.ai-dev ~/nix-config
+        docker run --rm -it -v "$PWD":/work -v "$HOME/.opencode/config:/root/.opencode/config" "$image" "$@"
       }
     '';
   };
