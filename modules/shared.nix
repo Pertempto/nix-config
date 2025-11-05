@@ -65,8 +65,9 @@
           buildAiDevImage
         fi
         mkdir -p "$HOME/.local/share/opencode"
+        mkdir -p "$HOME/.local/state/opencode"
         # Run container with: OpenCode config persisted, bash terminal
-        docker run --rm -it -v "$HOME/.local/share/opencode:/root/.local/share/opencode" "$image" bash
+        docker run --rm -it -v "$HOME/.local/share/opencode:/root/.local/share/opencode" -v "$HOME/.local/state/opencode:/root/.local/state/opencode" "$image" bash
       }
 
       # aiDev: build local image if missing and run with CWD mounted
@@ -76,8 +77,9 @@
           buildAiDevImage
         fi
         mkdir -p "$HOME/.local/share/opencode"
+        mkdir -p "$HOME/.local/state/opencode"
         # Run container with: current dir mounted at /work, OpenCode config persisted, OpenCode running
-        docker run --rm -it -v "$PWD":/work -v "$HOME/.local/share/opencode:/root/.local/share/opencode" "$image" "$@"
+        docker run --rm -it -v "$PWD":/work -v "$HOME/.local/share/opencode:/root/.local/share/opencode" -v "$HOME/.local/state/opencode:/root/.local/state/opencode" "$image" "$@"
       }
     '';
   };
