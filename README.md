@@ -83,9 +83,10 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 ## Manual Steps
 
 The following will need copied across manually and should be kept private and secure:
+- SSH keys
+- GitLab/GitHub auth
 - VPN connection configuration
   - OpenVPN3 for work
-- SSH keys
 
 ---
 
