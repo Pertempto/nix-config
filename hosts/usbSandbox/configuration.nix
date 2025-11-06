@@ -12,9 +12,6 @@
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager = {
     enable = true;
-    plugins = with pkgs; [
-      networkmanager-openvpn
-    ];
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -24,18 +21,8 @@
     efiSupport = true;
   };
 
-  # Enable OpenVPN 3 service
-  services.openvpn3 = {
-    enable = true;
-  };
-
-  services.openvpn.servers = {
-    workVPN = {
-      config = '' config /home/addison/Documents/sslvpn-addison.emig@mrs-electronics.com-client-config.ovpn '';
-      updateResolvConf = true;
-      autoStart = false;
-    };
-  };
+  # Enable OpenVPN 3
+  programs.openvpn3.enable = true;
 
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
