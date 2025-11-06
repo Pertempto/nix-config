@@ -5,6 +5,7 @@
 }:
 {
   environment.systemPackages = map lib.lowPrio [
+    pkgs.podman-compose
     pkgs.qemu
     pkgs.gnome-boxes
     pkgs.slirp4netns
