@@ -40,10 +40,13 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
    cd ~/nix-config
    ```
 
+1. If you are setting up a new host - copy the automatically generated `/etc/nixos/hardware-configuration.nix` file to the appropriate `~/nix-config/hosts/` subdirectory.
+   - Don't forget to also update the owner and group of the new file.
+
 1. Apply your host configuration:
 
    ```bash
-   # This uses the usbSandbox host, but there are other options
+   # This uses the usbSandbox host, but use the correct one for your system
    sudo nixos-rebuild switch --flake .#usbSandbox
    ```
 
@@ -112,18 +115,20 @@ The following will need copied across manually and should be kept private and se
 ## Roadmap
 
 - [x] Create `flake.nix` with proper inputs and outputs.
-- [x] Define `usbSandbox` profile
+- [x] Define `usbSandbox` profile.
 - [x] Install NixOS on USB drive (sandbox) and apply config.
 - [x] Create Home-Manager config for user `addison`.
 - [x] Test hardware (WiFi, GPU, battery, power) on sandbox.
 - [x] List current applications from Pop!\_OS and check availability.
 - [x] Iterate configuration until system and home workflows are stable.
 - [x] Backup Pop!\_OS data.
-- [ ] Define `thinkpad` profile
+- [x] Define `thinkpad` profile.
 - [ ] Install NixOS on internal drive.
 - [ ] Clone repo on internal install and apply `thinkpad` profile.
-- [ ] Verify everything works; optionally retire Pop!\_OS.
-- [ ] Set up periodic maintenance/upgrades (flake update, version control).
+- [ ] Verify everything works.
+- [ ] Set up `nix.gc`.
+- [ ] Set up `nix.optimise`.
+- [ ] Set up weekly slack reminder to run `nix flake update`
 
 ---
 
