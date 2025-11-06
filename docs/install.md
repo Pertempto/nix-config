@@ -24,11 +24,11 @@ Docs: https://nixos.wiki/wiki/NixOS_Installation_Guide
    (accept default) # end (press Enter) — use remaining space for root
    w               # write the table and exit
    ```
-1. Format partitions
+1. Format partitions (replace partitions with the ones for your system)
    ```sh
-   sudo mkfs.fat -F 32 /dev/sda1
-   sudo fatlabel /dev/sda1 NIXBOOT
-   sudo mkfs.ext4 /dev/sda2 -L NIXROOT
+   sudo mkfs.fat -F 32 /dev/sdb1
+   sudo fatlabel /dev/sdb1 NIXBOOT
+   sudo mkfs.ext4 /dev/sdb2 -L NIXROOT
    ```
 1. Mount
    ```sh
@@ -61,6 +61,7 @@ Docs: https://nixos.wiki/wiki/NixOS_Installation_Guide
    sudo nixos-install
    ```
 1. Shutdown
+1. Remove installation USB drive
 1. Boot up
 1. Login as root
 1. Set user password: `passwd <username>`
