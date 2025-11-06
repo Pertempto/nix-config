@@ -41,7 +41,8 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
    ```
 
 1. If you are setting up a new host - copy the automatically generated `/etc/nixos/hardware-configuration.nix` file to the appropriate `~/nix-config/hosts/` subdirectory.
-   - Don't forget to also update the owner and group of the new file.
+   - Don't forget to `git add` the file - otherwise nix won't recognize it.
+   - Verify the new file has the correct owner and group.
 
 1. Apply your host configuration:
 
