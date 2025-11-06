@@ -14,6 +14,7 @@
     pkgs.zoxide
     pkgs.jq
     pkgs.btop
+    pkgs.dig
 
     # software development tools
     pkgs.gh
