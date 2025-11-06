@@ -47,5 +47,20 @@
           inherit time-tracker;
         };
       };
+      nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/thinkpad/configuration.nix
+          ./modules/shared.nix
+          ./modules/virtualization.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.addison = import ./modules/home.nix;
+          }
+        ];
+        specialArgs = {
+          inherit time-tracker;
+        };
+      };
     };
 }

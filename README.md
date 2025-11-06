@@ -78,7 +78,7 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 - **Dev Server** (`devServer`): For my homelab dev server. It runs in a ProxMox virtual machine.
 - **USB Sandbox** (`usbSandbox`): For getting started without committing to a full installation to my hard drive.
-- **Work Laptop** (`thinkpad`): For my ThinkPad T490 work laptop. I won't start this host until I'm comfortable in the USB sandbox.
+- **Work Laptop** (`thinkpad`): For my ThinkPad T490 work laptop.
 - Additional host profiles may be added as needed.
 
 ---
@@ -123,7 +123,7 @@ The following will need copied across manually and should be kept private and se
 - [x] Iterate configuration until system and home workflows are stable.
 - [x] Backup Pop!\_OS data.
 - [x] Define `thinkpad` profile.
-- [ ] Install NixOS on internal drive.
+- [x] Install NixOS on internal drive.
 - [ ] Clone repo on internal install and apply `thinkpad` profile.
 - [ ] Verify everything works.
 - [ ] Set up `nix.gc`.
