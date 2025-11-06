@@ -87,6 +87,7 @@ The following will need copied across manually and should be kept private and se
 - GitLab/GitHub auth
 - VPN connection configuration
   - OpenVPN3 for work
+  - TailScale at home
 
 ---
 
@@ -115,9 +116,9 @@ The following will need copied across manually and should be kept private and se
 - [x] Install NixOS on USB drive (sandbox) and apply config.
 - [x] Create Home-Manager config for user `addison`.
 - [x] Test hardware (WiFi, GPU, battery, power) on sandbox.
-- [ ] List current applications from Pop!\_OS and check availability.
-- [ ] Iterate configuration until system and home workflows are stable.
-- [ ] Backup Pop!\_OS data.
+- [x] List current applications from Pop!\_OS and check availability.
+- [x] Iterate configuration until system and home workflows are stable.
+- [x] Backup Pop!\_OS data.
 - [ ] Define `thinkpad` profile
 - [ ] Install NixOS on internal drive.
 - [ ] Clone repo on internal install and apply `thinkpad` profile.
