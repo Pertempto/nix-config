@@ -15,8 +15,8 @@
       t = "time-tracker";
       tb = "cd $HOME/.config/time-tracker && ./backup.sh && cd -";
       u = "~/nix-config/hosts/usbSandbox/update.sh";
-      startVpn = "openvpn3 session-start --config ~/Documents/sslvpn-addison.emig@mrs-electronics.com-client-config.ovpn";
-      stopVpn = "openvpn3 session-manage --disconnect";
+      startVpn = "sudo systemctl start openvpn-mrsVPN.service";
+      stopVpn = "sudo systemctl stop openvpn-mrsVPN.service";
     };
   };
 

@@ -21,8 +21,14 @@
     efiSupport = true;
   };
 
-  # Enable OpenVPN 3
-  programs.openvpn3.enable = true;
+  # Enable OpenVPN with manual control (no auto-start)
+  services.openvpn.servers = {
+    mrsVPN = {
+      config = '' config /home/addison/Documents/sslvpn-addison.emig@mrs-electronics.com-client-config.ovpn '';
+      autoStart = false;
+      updateResolvConf = true;
+    };
+  };
 
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
@@ -31,7 +37,6 @@
   services.desktopManager.cosmic.enable = true;
   
   environment.systemPackages = with pkgs; [
-    pkgs.openvpn3
     pkgs.wl-clipboard
     pkgs.vivaldi
     pkgs.slack
