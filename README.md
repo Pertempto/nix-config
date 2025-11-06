@@ -88,6 +88,8 @@ The following manual tweaks I also apply:
   - Hide header
   - Set font to FiraCode
 
+You will also want to switch to using SSH for the `nix-config` repo so that you can push changes: `git remote set-url origin git@github.com:Pertempto/nix-config.git`
+
 ---
 
 ## Using the Flake
