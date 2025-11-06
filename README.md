@@ -57,6 +57,17 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 ---
 
+## Manual Steps
+
+The following will need copied across manually and should be kept private and secure:
+- SSH keys
+- GitLab/GitHub auth
+- VPN connection configuration
+  - OpenVPN3 for work
+  - TailScale at home
+
+---
+
 ## Using the Flake
 
 - Rebuild system configuration:
@@ -84,23 +95,10 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 ---
 
-## Manual Steps
-
-The following will need copied across manually and should be kept private and secure:
-- SSH keys
-- GitLab/GitHub auth
-- VPN connection configuration
-  - OpenVPN3 for work
-  - TailScale at home
-
----
-
 ## Maintenance & Upgrades
 
 - Periodically run `nix flake update` to refresh inputs; commit changes.
 - Use Git branches when experimenting (e.g., switching compositors).
-- Tag stable config releases if desired.
-- Keep hardware-specific modules separated for reuse across hosts.
 
 ---
 
