@@ -24,6 +24,11 @@
     efiSupport = true;
   };
 
+  # Enable OpenVPN 3 service
+  services.openvpn3 = {
+    enable = true;
+  };
+
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
 
@@ -31,6 +36,7 @@
   services.desktopManager.cosmic.enable = true;
   
   environment.systemPackages = with pkgs; [
+    pkgs.openvpn3
     pkgs.wl-clipboard
     pkgs.vivaldi
     pkgs.slack
