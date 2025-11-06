@@ -50,6 +50,9 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
    # This uses the usbSandbox host, but use the correct one for your system
    sudo nixos-rebuild switch --flake .#usbSandbox
    ```
+1. Reboot
+
+1. Verify everything works
 
 > [!NOTE]
 > One you have installed the flake the first time, you should be able to use the
