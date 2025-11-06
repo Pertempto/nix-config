@@ -24,8 +24,18 @@
       dockerCompat = true;
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true; 
-      # Only use docker.io registry by default
-      registries.search = [ "docker.io" ];
     };
   };
+
+  # Only use docker.io registry by default
+  environment.etc."containers/registries.conf".text = lib.mkForce ''
+    [registries.search]
+    registries = ['docker.io']
+
+    [registries.insecure]
+    registries = []
+
+    [registries.block]
+    registries = []
+  '';
 }
