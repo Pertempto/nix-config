@@ -12,6 +12,9 @@
 
   users.users.addison.extraGroups = [
     "libvirtd"
+    # WARNING: Beware that docker group membership is
+    #          effectively equivalent to being root!
+    "docker"
   ];
 
   virtualisation = {
