@@ -5,7 +5,6 @@
 }:
 {
   environment.systemPackages = map lib.lowPrio [
-    pkgs.podman-compose
     pkgs.qemu
     pkgs.gnome-boxes
     pkgs.slirp4netns
@@ -25,6 +24,8 @@
       dockerCompat = true;
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true; 
+      # Only use docker.io registry by default
+      registries.search = [ "docker.io" ];
     };
   };
 }
