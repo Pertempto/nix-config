@@ -29,10 +29,6 @@
 
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
-
-  services.openvpn.servers = {
-    officeVPN = { config = '' config /home/addison/Documents/sslvpn-addison.emig@mrs-electronics.com-client-config.ovpn ''; };
-  };
   
   environment.systemPackages = with pkgs; [
     pkgs.wl-clipboard
