@@ -84,6 +84,9 @@ The following manual tweaks I also apply:
   - Left-side tab bar
   - Disable password manager
   - ChatGPT search engine
+- Cosmic Terminal
+  - Hide header
+  - Set font to FiraCode
 
 ---
 
@@ -142,7 +145,7 @@ The following manual tweaks I also apply:
 - [x] Backup Pop!\_OS data.
 - [x] Define `thinkpad` profile.
 - [x] Install NixOS on internal drive.
-- [ ] Clone repo on internal install and apply `thinkpad` profile.
+- [x] Clone repo on internal install and apply `thinkpad` profile.
 - [ ] Verify everything works.
 - [ ] Set up `nix.gc`.
 - [ ] Set up `nix.optimise`.
