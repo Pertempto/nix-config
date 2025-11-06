@@ -7,21 +7,6 @@ This repository holds my NixOS + Home-Manager configuration using the flakes app
 
 ---
 
-## Table of Contents
-
-- [Bootstrap / Initial Setup](#bootstrap-initial-setup)
-- [Using the Flake](#using-the-flake)
-- [Hosts & Hardware Profiles](#hosts-&-hardware-profiles)
-- [Applications & Workflow](#applications-&-workflow)
-- [USB Sandbox Strategy](#usb-sandbox-strategy)
-- [Migration to Internal Install or Dual-Boot](#migration-to-internal-install-or-dual-boot)
-- [Maintenance & Upgrades](#maintenance-&-upgrades)
-- [Security & Secrets](#security-&-secrets)
-- [Roadmap](#roadmap)
-- [License](#license)
-
----
-
 ## Bootstrap / Initial Setup
 
 1. Get "Minimal ISO image" from the [NixOS ISO Download Page](https://nixos.org/download/#nixos-iso)
