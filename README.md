@@ -69,6 +69,22 @@ The following will need copied across manually and should be kept private and se
   - OpenVPN3 for work
   - TailScale at home
 
+The following manual tweaks I also apply:
+- Cosmic
+  - Display orientation
+  - Hide dock
+  - Touchpad
+    - Enable "Tap to click"
+    - Enable "Scroll with two fingers"
+  - Workspaces Span Displays
+  - Tile current workspace
+  - New workspace behavior: Tiled
+- Vivaldi
+  - Dark mode
+  - Left-side tab bar
+  - Disable password manager
+  - ChatGPT search engine
+
 ---
 
 ## Using the Flake
