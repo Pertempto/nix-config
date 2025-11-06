@@ -29,6 +29,14 @@
     enable = true;
   };
 
+  services.openvpn.servers = {
+    workVPN = {
+      config = '' config /home/addison/Documents/sslvpn-addison.emig@mrs-electronics.com-client-config.ovpn '';
+      updateResolvConf = true;
+      autoStart = false;
+    };
+  };
+
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
 
