@@ -61,6 +61,7 @@ The following manual tweaks I also apply:
   - Workspaces Span Displays
   - Tile current workspace
   - New workspace behavior: Tiled
+  - Set up Startup Applications
 - Vivaldi
   - Dark mode
   - Left-side tab bar
@@ -69,6 +70,7 @@ The following manual tweaks I also apply:
 - Cosmic Terminal
   - Hide header
   - Set font to FiraCode
+- Run `setup-repos.sh` script for the host
 
 You will also want to switch to using SSH for the `nix-config` repo so that you can push changes: `git remote set-url origin git@github.com:Pertempto/nix-config.git`
 
