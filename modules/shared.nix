@@ -25,6 +25,7 @@
     pkgs.nodejs_24
     pkgs.prettier
     pkgs.typescript-language-server
+    pkgs.android-tools
 
     # custom tools
     pkgs.weather
