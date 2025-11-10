@@ -46,7 +46,10 @@
     ohMyZsh = {
       enable = true;
       theme = "addison";
-      plugins = [ "jj" ];
+      plugins = [
+        "git"
+        "jj"
+      ];
       custom = "$HOME/nix-config/oh-my-zsh";
     };
     autosuggestions.enable = true;
