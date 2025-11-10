@@ -14,7 +14,7 @@
       pastebin = "curl -s --data-binary @- 'https://paste.c-net.org/'";
       t = "time-tracker";
       tb = "cd $HOME/.config/time-tracker && ./backup.sh && cd -";
-      u = "~/nix-config/hosts/usbSandbox/update.sh";
+      u = "~/nix-config/hosts/thinkpad/update.sh";
       startVpn = "sudo systemctl start openvpn-mrsVPN.service";
       stopVpn = "sudo systemctl stop openvpn-mrsVPN.service";
     };

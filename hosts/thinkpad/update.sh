@@ -5,6 +5,5 @@
 # can be moved to scripts/ directory
 
 cd ~/nix-config
-git pull
 sudo nixos-rebuild switch --flake .#thinkpad
 cd -

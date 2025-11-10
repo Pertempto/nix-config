@@ -45,8 +45,9 @@
     enable = true;
     ohMyZsh = {
       enable = true;
-      theme = "robbyrussell";
+      theme = "addison";
       plugins = [ "jj" ];
+      custom = "$HOME/nix-config/oh-my-zsh";
     };
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
