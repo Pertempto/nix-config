@@ -22,6 +22,6 @@ jj_prompt_info() {
 }
 
 ZSH_THEME_JJ_PROMPT_PREFIX="%{$fg_bold[blue]%}jj:(%{$fg[red]%}"
-ZSH_THEME_JJ_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_JJ_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_JJ_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
 ZSH_THEME_JJ_PROMPT_CLEAN="%{$fg[blue]%})"
