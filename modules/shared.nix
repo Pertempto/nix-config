@@ -9,6 +9,7 @@
     # core tools
     pkgs.curl
     pkgs.gitMinimal
+    pkgs.jujutsu
     pkgs.helix
     pkgs.zellij
     pkgs.zoxide
