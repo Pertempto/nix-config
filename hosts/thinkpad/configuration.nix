@@ -46,6 +46,7 @@
     pkgs.keepassxc
     pkgs.pika-backup
     pkgs.beekeeper-studio
+    pkgs.harlequin
     pkgs.android-studio
   ];
 

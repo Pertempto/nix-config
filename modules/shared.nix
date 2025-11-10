@@ -27,6 +27,7 @@
     pkgs.typescript-language-server
 
     # custom tools
+    pkgs.weather
     time-tracker.packages.${pkgs.system}.default
   ];
 
