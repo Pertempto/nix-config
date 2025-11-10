@@ -26,6 +26,7 @@
       user.name = "Addison Emig";
       user.email = "addison.emig@mrs-electronics.com";
       push = { autoSetupRemote = true; };
+      pull = { rebase = true; };
     };
   };
 }
