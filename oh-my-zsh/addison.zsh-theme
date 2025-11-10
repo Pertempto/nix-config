@@ -22,6 +22,6 @@ vcs_info() {
 
   # Display prompt
   if [[ -n "$ref" ]]; then
-    echo -n "%{$fg_bold[blue]%}${system}:(%{$fg[red]%}${ref}%{$reset_color%}${dirty_status}%{$fg_bold[blue]%})%{$reset_bold%} "
+    echo -n "%{$fg_bold[blue]%}${system}:(%{$fg[red]%}${ref}%{$reset_color%}%{$fg[blue]%}${dirty_status}%{$reset_color%}%{$fg_bold[blue]%})%{$reset_color%} "
   fi
 }
