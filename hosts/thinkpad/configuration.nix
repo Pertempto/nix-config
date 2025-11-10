@@ -41,6 +41,8 @@
     pkgs.vivaldi
     pkgs.slack
     pkgs.teams-for-linux
+    pkgs.evolution
+    pkgs.evolution-ews
     pkgs.keepassxc
     pkgs.pika-backup
     pkgs.beekeeper-studio
