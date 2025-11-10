@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     git \
     unzip \
+    wget \
+    software-properties-common \
+    dpkg \
     # add any others you need
     && rm -rf /var/lib/apt/lists/*
 
@@ -19,12 +22,21 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
     && apt-get install -y gh \
     && rm -rf /var/lib/apt/lists/*
 
+# Install Helix editor from PPA .deb package
+RUN wget http://ppa.launchpadcontent.net/maveonair/helix-editor/ubuntu/pool/main/h/helix/helix_25.01.1-4~ubuntu24.10~ppa1_amd64.deb \
+    && dpkg -i helix_25.01.1-4~ubuntu24.10~ppa1_amd64.deb \
+    && rm helix_25.01.1-4~ubuntu24.10~ppa1_amd64.deb \
+    && ln -sf /usr/bin/helix /usr/local/bin/hx || true
+
 # Install OpenCode
 RUN curl -fsSL https://opencode.ai/install | bash
 
 # Configure git user
 RUN git config --global user.name "OpenCode" && \
     git config --global user.email "opencode@opencode.ai"
+
+# Set editor to helix
+ENV EDITOR=hx
 
 # This is where the code will be mounted
 RUN mkdir /work

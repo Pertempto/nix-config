@@ -22,7 +22,10 @@
     pkgs.flutter
     pkgs.go
     pkgs.nodejs_24
+    pkgs.prettier
+    pkgs.typescript-language-server
 
+    # custom tools
     time-tracker.packages.${pkgs.system}.default
   ];
 
