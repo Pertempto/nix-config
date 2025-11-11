@@ -8,12 +8,12 @@ vcs_info() {
   if ref=$(jj_prompt_template_raw 'if(bookmarks, bookmarks, change_id.short())' 2>/dev/null); then
     system="jj"
   # Otherwise, try getting the git branch
-  elif [[ -n "$(git branch --show-current)" ]]; then
+  elif [[ -n "$(git branch --show-current 2>/dev/null)" ]]; then
     ref=$(git symbolic-ref --short HEAD 2>/dev/null)
     system="git"
   # Use current git commit hash as fallback
   else
-    ref=$(git rev-parse --short HEAD)
+    ref=$(git rev-parse --short HEAD 2>/dev/null)
     system="git"
   fi
 
