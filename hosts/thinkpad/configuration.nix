@@ -48,6 +48,7 @@
     pkgs.beekeeper-studio
     pkgs.harlequin
     pkgs.android-studio
+    pkgs.git-repo
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
