@@ -9,7 +9,7 @@ vcs_info() {
     system="jj"
   # Otherwise, try getting the git branch
   elif [[ -n "$(git branch --show-current)" ]]; then
-    ref=$(git symbolic-ref --short HEAD 2>/dev/null | head -c 7)
+    ref=$(git symbolic-ref --short HEAD 2>/dev/null)
     system="git"
   # Use current git commit hash as fallback
   else
