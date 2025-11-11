@@ -4,16 +4,21 @@ PROMPT+=' $(vcs_info)'
 vcs_info() {
   local system="" ref="" dirty_status=""
 
-  # VCS detection: jj first, then git (branch or detached HEAD)
+  # First, try getting the jj prompt
   if ref=$(jj_prompt_template_raw 'if(bookmarks, bookmarks, change_id.short())' 2>/dev/null); then
     system="jj"
-  elif git symbolic-ref --short HEAD 2>/dev/null | head -c 7 | read -r ref; then
+  # Otherwise, try getting the git branch
+  elif [[ -n "$(git branch --show-current)" ]]; then
+    ref=$(git symbolic-ref --short HEAD 2>/dev/null | head -c 7)
     system="git"
-  elif ref=$(git describe --tags --always --abbrev=7 2>/dev/null); then
+  # Use current git commit hash as fallback
+  else
+    ref=$(git rev-parse --short HEAD)
     system="git"
   fi
 
   # Get dirty status for detected VCS
+  # TODO: this isn't working for either system
   if [[ "$system" == "jj" ]]; then
     dirty_status=$(jj_prompt_template_raw 'if(self.working_copy_changes().files(root:""), "✗", "")' 2>/dev/null)
   elif [[ "$system" == "git" ]]; then
