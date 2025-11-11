@@ -13,6 +13,11 @@ RUN apt-get update && apt-get install -y \
     # add any others you need
     && rm -rf /var/lib/apt/lists/*
 
+# Install Node.js v24
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install GitHub CLI
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
     | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg \

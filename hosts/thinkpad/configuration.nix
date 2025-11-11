@@ -39,14 +39,14 @@
   environment.systemPackages = with pkgs; [
     pkgs.wl-clipboard
     pkgs.vivaldi
+    pkgs.chromium
     pkgs.slack
     pkgs.teams-for-linux
-    pkgs.evolution
-    pkgs.evolution-ews
     pkgs.keepassxc
     pkgs.pika-backup
     pkgs.beekeeper-studio
     pkgs.harlequin
+    # Android tools
     pkgs.android-studio
     pkgs.git-repo
   ];
