@@ -16,6 +16,7 @@
     pkgs.jq
     pkgs.btop
     pkgs.dig
+    pkgs.nmap
 
     # software development tools
     pkgs.gh
