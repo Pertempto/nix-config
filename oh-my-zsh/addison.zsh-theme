@@ -18,15 +18,18 @@ vcs_info() {
   fi
 
   # Get dirty status for detected VCS
-  # TODO: this isn't working for either system
   if [[ "$system" == "jj" ]]; then
-    dirty_status=$(jj_prompt_template_raw 'if(self.working_copy_changes().files(root:""), "✗", "")' 2>/dev/null)
+    if [[ -n "$(jj diff 2>/dev/null)" ]]; then
+      dirty_status="✗ "
+    fi
   elif [[ "$system" == "git" ]]; then
-    dirty_status=$(git diff --shortstat 2>/dev/null | head -n 1)
+    if [[ -n "$(git diff --shortstat 2>/dev/null)" ]]; then
+      dirty_status="✗ "
+    fi
   fi
 
   # Display prompt
   if [[ -n "$ref" ]]; then
-    echo -n "%{$fg_bold[blue]%}${system}:(%{$fg[red]%}${ref}%{$reset_color%}%{$fg[blue]%}${dirty_status}%{$reset_color%}%{$fg_bold[blue]%})%{$reset_color%} "
+    echo -n "%{$fg_bold[blue]%}${system}:(%{$fg[red]%}${ref}%{$reset_color%}%{$fg_bold[blue]%})%{$reset_color%} %{$fg[yellow]%}${dirty_status}%{$reset_color%}"
   fi
 }
