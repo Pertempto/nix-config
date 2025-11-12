@@ -75,7 +75,7 @@
       # aiDev: build local image if missing and run with CWD mounted
       aiDev() {
         mkdir -p "$HOME/.local/share/opencode" "$HOME/.local/state/opencode"
-        docker compose -f "$AI_DEV_COMPOSE_FILE" run --rm --build -v "$PWD":/work ai-dev "$@"
+        docker compose -f "$AI_DEV_COMPOSE_FILE" run --rm -v "$PWD":/work ai-dev "$@"
       }
     '';
   };
