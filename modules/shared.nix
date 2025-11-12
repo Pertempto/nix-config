@@ -69,7 +69,7 @@
 
       # buildAiDevImage: force rebuild of the local ai-dev image
       buildAiDevImage() {
-        docker compose -f "$AI_DEV_COMPOSE_FILE" build --no-cache ai-dev
+        docker compose -f "$AI_DEV_COMPOSE_FILE" build ai-dev
       }
 
       # aiDev: build local image if missing and run with CWD mounted

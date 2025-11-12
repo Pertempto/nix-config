@@ -33,6 +33,10 @@ RUN wget http://ppa.launchpadcontent.net/maveonair/helix-editor/ubuntu/pool/main
     && rm helix_25.01.1-4~ubuntu24.10~ppa1_amd64.deb \
     && ln -sf /usr/bin/helix /usr/local/bin/hx || true
 
+# Install Docker
+RUN apt-get install -y docker.io && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install OpenCode
 RUN curl -fsSL https://opencode.ai/install | bash
 
