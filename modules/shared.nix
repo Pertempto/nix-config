@@ -13,6 +13,7 @@
     pkgs.helix
     pkgs.zellij
     pkgs.zoxide
+    pkgs.scooter
     pkgs.jq
     pkgs.btop
     pkgs.dig
