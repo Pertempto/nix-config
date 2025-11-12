@@ -51,4 +51,6 @@ ENV EDITOR=hx
 RUN mkdir /work
 WORKDIR /work
 
+RUN git config --global --add safe.directory /work
+
 CMD ["/root/.opencode/bin/opencode"]
