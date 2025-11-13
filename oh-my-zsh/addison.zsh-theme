@@ -23,7 +23,7 @@ vcs_info() {
       dirty_status="✗ "
     fi
   elif [[ "$system" == "git" ]]; then
-    if [[ -n "$(git diff --shortstat 2>/dev/null)" ]]; then
+    if [[ -n "$(git diff --shortstat HEAD 2>/dev/null)" ]]; then
       dirty_status="✗ "
     fi
   fi
