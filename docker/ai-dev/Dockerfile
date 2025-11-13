@@ -34,8 +34,12 @@ RUN wget http://ppa.launchpadcontent.net/maveonair/helix-editor/ubuntu/pool/main
     && ln -sf /usr/bin/helix /usr/local/bin/hx || true
 
 # Install Docker
-RUN apt-get install -y docker.io && \
-    rm -rf /var/lib/apt/lists/*
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+    | tee /etc/apt/sources.list.d/docker.list > /dev/null \
+    && apt-get update \
+    && apt-get install -y docker-ce docker-ce-cli containerd.io \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install OpenCode
 RUN curl -fsSL https://opencode.ai/install | bash
