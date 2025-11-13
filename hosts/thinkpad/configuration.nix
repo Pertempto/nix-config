@@ -9,6 +9,9 @@
     ./hardware-configuration.nix
   ];
 
+  time.timeZone = "America/Mexico_City";
+  # time.timeZone = "America/New_York";
+
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager = {
     enable = true;
@@ -46,11 +49,16 @@
     pika-backup
     beekeeper-studio
     harlequin
+    # AWS tools
+    awscli2
+    awsebcli
     # Qt tools
     qt5.qtbase
     qt5.qtbase.dev
     qtcreator
     gnumake
+    gcc
+    binutils
     # Android tools
     android-studio
     git-repo

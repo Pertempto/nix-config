@@ -9,6 +9,8 @@
     ./hardware-configuration.nix
   ];
 
+  time.timeZone = "America/New_York";
+
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager = {
     enable = true;

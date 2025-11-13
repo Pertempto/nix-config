@@ -3,6 +3,7 @@ services:
     image: ai-dev:latest
     build: .
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - ${HOME}/.local/share/opencode:/root/.local/share/opencode
       - ${HOME}/.local/state/opencode:/root/.local/state/opencode
     working_dir: /work

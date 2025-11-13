@@ -24,6 +24,7 @@
     pkgs.glab
     pkgs.flutter
     pkgs.go
+    pkgs.gopls
     pkgs.nodejs_24
     pkgs.prettier
     pkgs.typescript-language-server
@@ -36,8 +37,6 @@
   ];
 
   environment.variables.EDITOR = "hx";
-
-  time.timeZone = "America/New_York";
 
   nixpkgs.config.allowUnfree = true;
 
