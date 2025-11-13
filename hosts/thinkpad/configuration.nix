@@ -37,22 +37,23 @@
   services.desktopManager.cosmic.enable = true;
   
   environment.systemPackages = with pkgs; [
-    pkgs.wl-clipboard
-    pkgs.vivaldi
-    pkgs.chromium
-    pkgs.slack
-    pkgs.teams-for-linux
-    pkgs.keepassxc
-    pkgs.pika-backup
-    pkgs.beekeeper-studio
-    pkgs.harlequin
+    wl-clipboard
+    vivaldi
+    chromium
+    slack
+    teams-for-linux
+    keepassxc
+    pika-backup
+    beekeeper-studio
+    harlequin
     # Qt tools
     qt5.qtbase
     qt5.qtbase.dev
     qtcreator
+    gnumake
     # Android tools
-    pkgs.android-studio
-    pkgs.git-repo
+    android-studio
+    git-repo
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
