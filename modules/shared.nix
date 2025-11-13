@@ -28,6 +28,7 @@
     pkgs.prettier
     pkgs.typescript-language-server
     pkgs.android-tools
+    pkgs.amp-cli
 
     # custom tools
     pkgs.weather
