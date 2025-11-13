@@ -46,6 +46,10 @@
     pkgs.pika-backup
     pkgs.beekeeper-studio
     pkgs.harlequin
+    # Qt tools
+    qt5.qtbase
+    qt5.qtbase.dev
+    qtcreator
     # Android tools
     pkgs.android-studio
     pkgs.git-repo
