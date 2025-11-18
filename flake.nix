@@ -6,6 +6,7 @@
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
   inputs.time-tracker.url = "github:mrs-electronics-inc/time-tracker";
   inputs.time-tracker.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.opencode.url = "github:sst/opencode/dev";
 
   outputs =
     {
@@ -13,6 +14,7 @@
       disko,
       home-manager,
       time-tracker,
+      opencode,
       ...
     }:
     {
@@ -29,7 +31,7 @@
           }
         ];
         specialArgs = {
-          inherit time-tracker;
+          inherit time-tracker opencode;
         };
       };
       nixosConfigurations.usbSandbox = nixpkgs.lib.nixosSystem {
@@ -44,7 +46,7 @@
           }
         ];
         specialArgs = {
-          inherit time-tracker;
+          inherit time-tracker opencode;
         };
       };
       nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
@@ -59,7 +61,7 @@
           }
         ];
         specialArgs = {
-          inherit time-tracker;
+          inherit time-tracker opencode;
         };
       };
     };

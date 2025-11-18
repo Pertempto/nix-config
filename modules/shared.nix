@@ -2,6 +2,7 @@
   lib,
   pkgs,
   time-tracker,
+  opencode,
   ...
 }:
 {
@@ -34,6 +35,7 @@
     # custom tools
     pkgs.weather
     time-tracker.packages.${pkgs.system}.default
+    opencode.packages.${pkgs.system}.default
   ];
 
   environment.variables.EDITOR = "hx";
