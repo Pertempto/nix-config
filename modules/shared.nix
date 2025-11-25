@@ -27,6 +27,7 @@
     pkgs.flutter
     pkgs.go
     pkgs.gopls
+    pkgs.just-lsp
     pkgs.nodejs_24
     pkgs.prettier
     pkgs.typescript-language-server
