@@ -34,6 +34,9 @@
     pkgs.android-tools
     pkgs.amp-cli
     pkgs.pre-commit
+    pkgs.opencode
+    pkgs.packer
+    pkgs.virtualbox
 
     # language servers
     pkgs.gopls
