@@ -1,6 +1,9 @@
+[language-server.ltex-ls-plus]
+command = "/run/current-system/sw/bin/ltex-ls-plus"
+
 [[language]]
 name = "markdown"
-language-servers = [ "marksman", "ltex-ls" ]
+language-servers = [ "marksman", "ltex-ls-plus" ]
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 

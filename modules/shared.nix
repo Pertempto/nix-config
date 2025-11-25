@@ -11,29 +11,36 @@
     pkgs.curl
     pkgs.gitMinimal
     pkgs.jujutsu
-    pkgs.helix
-    pkgs.zellij
     pkgs.zoxide
-    pkgs.scooter
     pkgs.jq
-    pkgs.btop
     pkgs.dig
     pkgs.nmap
     pkgs.just
+
+    # core TUIs
+    pkgs.btop
+    pkgs.zellij
+    pkgs.helix
+    pkgs.scooter
+    pkgs.sc-im
 
     # software development tools
     pkgs.gh
     pkgs.glab
     pkgs.flutter
     pkgs.go
-    pkgs.gopls
-    pkgs.just-lsp
     pkgs.nodejs_24
     pkgs.prettier
-    pkgs.typescript-language-server
     pkgs.android-tools
     pkgs.amp-cli
     pkgs.pre-commit
+
+    # language servers
+    pkgs.gopls
+    pkgs.just-lsp
+    pkgs.typescript-language-server
+    pkgs.marksman
+    pkgs.ltex-ls-plus
 
     # custom tools
     pkgs.weather
