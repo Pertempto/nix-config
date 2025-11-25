@@ -9,8 +9,7 @@
     ./hardware-configuration.nix
   ];
 
-  time.timeZone = "America/Mexico_City";
-  # time.timeZone = "America/New_York";
+  time.timeZone = "America/New_York";
 
   # See https://wiki.nixos.org/wiki/NetworkManager
   networking.networkmanager = {

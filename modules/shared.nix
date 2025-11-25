@@ -31,6 +31,7 @@
     pkgs.typescript-language-server
     pkgs.android-tools
     pkgs.amp-cli
+    pkgs.pre-commit
 
     # custom tools
     pkgs.weather
