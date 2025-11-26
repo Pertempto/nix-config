@@ -95,11 +95,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1764156697,
-        "narHash": "sha256-yvpmbYvN3LrF3OkGqWfS/1JvnIo9jIuVi68BKHY9TXw=",
+        "lastModified": 1764158684,
+        "narHash": "sha256-D4VNmzDKIhG6xoSYSfMjqnFe9XnHofiN4XQptavGnWE=",
         "owner": "sst",
         "repo": "opencode",
-        "rev": "9a8b8f26ac955c8c59b2bc1222edd3fb4e6be0be",
+        "rev": "51455e2a1e182cf91e321ac180476232df932853",
         "type": "github"
       },
       "original": {
@@ -141,11 +141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764157211,
-        "narHash": "sha256-bG4qp0RqoSG574ILm+KMPnF7ZWBNy31bCglPhvh/hOI=",
+        "lastModified": 1764157497,
+        "narHash": "sha256-fRE1r+CV6R6nSCIo2Yu7sCq0T/VKWBNJC9THoX/AxGI=",
         "owner": "mrs-electronics-inc",
         "repo": "time-tracker",
-        "rev": "4c91492622e72c3d4672414bc134737bb35ee270",
+        "rev": "2e58edbe718f795d7c5962dccae2f393a331205c",
         "type": "github"
       },
       "original": {
