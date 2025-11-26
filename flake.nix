@@ -18,11 +18,11 @@
       ...
     }:
     {
-      nixosConfigurations.devServer = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.dev-server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko
-          ./hosts/devServer/configuration.nix
+          ./hosts/dev-server/configuration.nix
           ./modules/shared.nix
           ./modules/virtualization.nix
           home-manager.nixosModules.home-manager
@@ -34,10 +34,10 @@
           inherit time-tracker opencode;
         };
       };
-      nixosConfigurations.usbSandbox = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.usb-sandbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/usbSandbox/configuration.nix
+          ./hosts/usb-sandbox/configuration.nix
           ./modules/shared.nix
           ./modules/virtualization.nix
           home-manager.nixosModules.home-manager

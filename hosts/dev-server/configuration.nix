@@ -18,6 +18,8 @@
     efiInstallAsRemovable = true;
   };
 
+  networking.hostname = "dev-server";
+
   time.timeZone = "America/New_York";
 
   networking.defaultGateway = "192.168.31.1";
