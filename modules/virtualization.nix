@@ -1,10 +1,9 @@
 {
-  lib,
   pkgs,
   ...
 }:
 {
-  environment.systemPackages = map lib.lowPrio [
+  environment.systemPackages = [
     pkgs.qemu
     pkgs.gnome-boxes
     pkgs.slirp4netns
