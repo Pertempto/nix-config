@@ -18,7 +18,7 @@
     efiInstallAsRemovable = true;
   };
 
-  networking.hostname = "dev-server";
+  networking.hostName = "dev-server";
 
   time.timeZone = "America/New_York";
 
