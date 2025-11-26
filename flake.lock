@@ -141,11 +141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763119589,
-        "narHash": "sha256-6fwS2WHoZ9WX+lc3t8fG8biJUHj/w/swCiEgz7+fwaA=",
+        "lastModified": 1764153000,
+        "narHash": "sha256-tFwjbu15gyVDZcSxDpHinaaAu8OTLS/6aTapZP94Jgg=",
         "owner": "mrs-electronics-inc",
         "repo": "time-tracker",
-        "rev": "2d8962add2a47d243364d04429a306fead1a513d",
+        "rev": "c90de7668dff22c5f986d86afbee8bb4df91da78",
         "type": "github"
       },
       "original": {
