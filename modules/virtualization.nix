@@ -8,6 +8,9 @@
     pkgs.qemu
     pkgs.gnome-boxes
     pkgs.slirp4netns
+    pkgs.packer
+    pkgs.virtualbox
+    pkgs.virtualboxExtpack
   ];
 
   users.users.addison.extraGroups = [
@@ -15,11 +18,13 @@
     # WARNING: Beware that docker group membership is
     #          effectively equivalent to being root!
     "docker"
+    "vboxusers"
   ];
 
   virtualisation = {
     libvirtd.enable = true;
     containers.enable = true;
+    virtualbox.host.enable = true;
 
     docker = {
       enable = true;

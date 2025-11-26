@@ -35,8 +35,6 @@
     pkgs.amp-cli
     pkgs.pre-commit
     pkgs.opencode
-    pkgs.packer
-    pkgs.virtualbox
     pkgs.python313Packages.black
 
     # language servers
