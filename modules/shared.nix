@@ -37,6 +37,7 @@
     pkgs.opencode
     pkgs.packer
     pkgs.virtualbox
+    pkgs.python313Packages.black
 
     # language servers
     pkgs.gopls
@@ -44,6 +45,7 @@
     pkgs.typescript-language-server
     pkgs.marksman
     pkgs.ltex-ls-plus
+    pkgs.python313Packages.python-lsp-server
 
     # custom tools
     pkgs.weather
