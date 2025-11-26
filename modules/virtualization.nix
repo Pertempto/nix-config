@@ -10,7 +10,6 @@
     pkgs.slirp4netns
     pkgs.packer
     pkgs.virtualbox
-    pkgs.virtualboxExtpack
   ];
 
   users.users.addison.extraGroups = [
@@ -24,7 +23,10 @@
   virtualisation = {
     libvirtd.enable = true;
     containers.enable = true;
-    virtualbox.host.enable = true;
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
 
     docker = {
       enable = true;
