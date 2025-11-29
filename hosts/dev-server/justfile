@@ -5,6 +5,10 @@ deploy target_ip:
 
     # Prepare install files
     mkdir -p install-files/etc/ssh
+    # CRITICAL: SSH requires /etc/ssh to be 755 (not group-writable).
+    # mkdir uses umask, which may create 775. This chmod ensures correct
+    # permissions are copied to the target system via --extra-files.
+    chmod 755 install-files/etc/ssh
     install -m 600 secrets/host-key install-files/etc/ssh/ssh_host_ed25519_key
 
     # Run nixos-anywhere (skip reboot phase since IP will change)

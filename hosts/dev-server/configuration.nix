@@ -44,6 +44,13 @@
     ];
   };
 
+  # Ensure ~/.ssh directory exists with correct ownership before agenix and home-manager run.
+  # Without this, agenix creates ~/.ssh as root:root when symlinking the client key,
+  # which prevents home-manager from writing the SSH config file.
+  systemd.tmpfiles.rules = [
+    "d /home/addison/.ssh 0700 addison users -"
+  ];
+
   # Configure agenix secrets
   age.secrets.addison-password.file = ./secrets/addison-password.age;
   age.secrets.dev-server-client-key = {
