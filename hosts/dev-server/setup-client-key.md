@@ -25,7 +25,7 @@ cat /tmp/dev-server-client | xclip -selection clipboard
 cat /tmp/dev-server-client | wl-copy
 ```
 
-**ACTION:** The private key is now in your clipboard. Paste it into your password manager under "dev-server SSH client key". Your password manager can generate the public key from the private key when needed.
+**ACTION:** The private key is now in your clipboard. Paste it into your password manager under "Dev Server - SSH client key". Your password manager can generate the public key from the private key when needed.
 
 ### 3. Encrypt the Private Key with Agenix
 
