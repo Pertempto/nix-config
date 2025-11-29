@@ -1,0 +1,25 @@
+# Deploy dev-server with nixos-anywhere
+deploy-dev-server target_ip:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    # Prepare install files
+    mkdir -p install-files/etc/ssh
+    install -m 600 secrets/host-key install-files/etc/ssh/ssh_host_ed25519_key
+
+    # Run nixos-anywhere (skip reboot phase since IP will change)
+    nix run github:nix-community/nixos-anywhere -- \
+      --flake ../../.#dev-server \
+      --extra-files install-files \
+      --phases kexec,disko,install \
+      --target-host root@{{target_ip}}
+
+    # Cleanup
+    rm -rf install-files
+
+    echo ""
+    echo "Deployment complete!"
+    echo "Next steps:"
+    echo "  1. Remove the installer DVD from ProxMox"
+    echo "  2. Reboot the VM"
+    echo "  3. SSH to addison@192.168.31.23 (configured static IP)"

@@ -8,3 +8,10 @@ result-*
 # Ignore secrets files
 **/*-secrets.nix
 **/*-secrets.conf
+
+# Ignore private SSH host keys (but allow .pub files)
+**/secrets/host-key
+!**/secrets/host-key.pub
+
+# Ignore temporary install files directory
+**/install-files/

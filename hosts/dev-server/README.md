@@ -30,45 +30,28 @@ Followed the basic instructions from the "Creating the NixOS VM" section of [thi
 
 ## NixOS-Anywhere Installation
 
-I have found it is best to reference the flake using `.` rather than the GitHub URL, to make sure we are using the latest version rather than some cached version.
+The installation uses agenix for secrets management, which requires installing a pre-generated SSH host key.
 
-Example install:
+### Deployment Command
 
-```bash
-nix run github:nix-community/nixos-anywhere -- --flake .#dev-server --target-host root@192.168.31.246
-```
-
-Remove the installer DVD in the ProxMox hardware options before rebooting, otherwise it will keep booting to the installer
-
-## SSH Keys
-
-I manually created the `kwila` and `kwila.pub` SSH key files from values in BitWarden. We need these to push/pull git repos.
+From the `hosts/dev-server` directory:
 
 ```bash
-➜  ~ ls -lah ~/.ssh
-total 32K
-drwxr-xr-x  2 addison users 4.0K Nov 26 17:04 .
-drwx------ 11 addison users 4.0K Nov 26 19:40 ..
--rw-r--r--  1 addison users  160 Nov 26 17:03 config
--rw-------  1 addison users    0 Nov 26 17:04 known_hosts
--rw-------  1 addison users  923 Nov 26 17:02 known_hosts.old
--rw-------  1 addison users  420 Nov 26 16:58 kwila
--rw-r--r--  1 addison users  106 Nov 26 16:58 kwila.pub
-````
-
-I also added basic SSH config for git hosts in `~/.ssh/config`
-
+just deploy-dev-server <target-ip>
 ```
-Host github.com
-	HostName github.com
-	User git
-	IdentityFile ~/.ssh/kwila
 
-Host git.kwila.cloud
-	HostName 192.168.31.28
-	User git
-	IdentityFile ~/.ssh/kwila
+Example:
+
+```bash
+just deploy-dev-server 192.168.31.246
 ```
+
+The justfile recipe automatically:
+- Prepares the SSH host key for installation
+- Runs nixos-anywhere with the correct parameters
+- Cleans up temporary files
+
+**After deployment:** Remove the installer DVD in ProxMox hardware options before rebooting.
 
 ### Updates
 

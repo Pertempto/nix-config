@@ -36,9 +36,19 @@
     settings = {
       PermitRootLogin = "no";
     };
+    hostKeys = [
+      {
+        path = "/etc/ssh/ssh_host_ed25519_key";
+        type = "ed25519";
+      }
+    ];
   };
 
+  # Configure agenix secrets
+  age.secrets.addison-password.file = ../../secrets/addison-password.age;
+
   users.users.addison = {
+    hashedPasswordFile = "/run/agenix/addison-password";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSuWXV6LTpMKtNOpluR3umIJlh+94p0yJTXNNDqQeUV"
     ];
