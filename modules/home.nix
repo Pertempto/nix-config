@@ -29,4 +29,14 @@
       pull = { rebase = true; };
     };
   };
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "git.kwila.cloud" = {
+        hostname = "192.168.31.28";
+        user = "git";
+      };
+    };
+  };
 }

@@ -3,4 +3,5 @@ let
 in
 {
   "secrets/addison-password.age".publicKeys = [ dev-server ];
+  "secrets/client-key.age".publicKeys = [ dev-server ];
 }

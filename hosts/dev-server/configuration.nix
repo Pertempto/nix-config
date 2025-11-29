@@ -45,12 +45,18 @@
   };
 
   # Configure agenix secrets
-  age.secrets.addison-password.file = ../../secrets/addison-password.age;
+  age.secrets.addison-password.file = ./secrets/addison-password.age;
+  age.secrets.dev-server-client-key = {
+    file = ./secrets/client-key.age;
+    owner = "addison";
+    path = "/home/addison/.ssh/id_ed25519";
+    mode = "0600";
+  };
 
   users.users.addison = {
     hashedPasswordFile = "/run/agenix/addison-password";
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSuWXV6LTpMKtNOpluR3umIJlh+94p0yJTXNNDqQeUV"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4iXZohV7G+gtWdGf69DJTV8YsZac0rdCc4CVTIbW8U addison@emig-home-laptop"
     ];
   };
 
