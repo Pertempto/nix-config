@@ -27,4 +27,4 @@ deploy target_ip:
     echo "  1. Shut down the VM"
     echo "  1. Remove the installer DVD media from ProxMox"
     echo "  2. Start the VM"
-    echo "  3. SSH to `addison@192.168.31.23` (configured static IP)"
+    echo "  3. SSH to addison@192.168.31.23"
