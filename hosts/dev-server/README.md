@@ -37,13 +37,13 @@ The installation uses agenix for secrets management, which requires installing a
 From the `hosts/dev-server` directory:
 
 ```bash
-just deploy-dev-server <target-ip>
+just deploy <target-ip>
 ```
 
 Example:
 
 ```bash
-just deploy-dev-server 192.168.31.246
+just deploy 192.168.31.246
 ```
 
 The justfile recipe automatically:
